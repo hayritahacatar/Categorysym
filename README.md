@@ -2,65 +2,89 @@
 
 > **"A mobile design philosophy inspired by the ancestors of this industry, prioritizing utility over decoration."**
 
-Categorysym is a concept-driven Android launcher that challenges the modern "animation-first" interface trends. It focuses on functional integrity, efficient organization, and a minimalist aesthetic, treating your smartphone as a true extension of your intent.
+Categorysym, modern arayüzlerin aşırı animasyon ve süsleme odaklı trendlerine meydan okuyan, konsept odaklı bir Android Launcher uygulamasıdır. İşlevsel bütünlüğe, kategorik düzenlemeye ve minimalist bir estetiğe odaklanarak akıllı telefonunuzu amacınızın gerçek bir uzantısı haline getirir.
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Platform: Android](https://img.shields.io/badge/Platform-Android-brightgreen.svg)](https://android.com)
+[![Language: Kotlin](https://img.shields.io/badge/Language-Kotlin-purple.svg)](https://kotlinlang.org)
+[![UI: Jetpack Compose](https://img.shields.io/badge/UI-Jetpack%20Compose-4285F4.svg)](https://developer.android.com/jetpack/compose)
 
 ---
 
-## 🏛 The Manifesto
+## 🏛 Manifesto
 
-In an era of flashy overhauls, Categorysym stands for clarity. 
+Süslü ve karmaşık arayüz dönüşümlerinin aksına Categorysym netliği savunur:
 
-*"It neither hides complexity behind animations nor overhauls unambiguous functions. By treating your most personal device as an extension of self, it harmonizes everything you do with the needs of the future."*
-
----
-
-## ✨ Key Features
-
-- **🚀 Dynamic Categorization:** A sophisticated engine that organizes your apps into 20 functional categories (8 default + 12 optional), ranging from *Communicator* to *Generative AI Productivity*.
-- **⚡ Smart Sorting:** Prioritizes your workflow by keeping the most used apps at the top of each category, followed by a localized alphabetical order.
-- **🔒 Secure Hidden Vault:** A dedicated section for sensitive apps, protected by device-level **Biometric Authentication** (Fingerprint/PIN).
-- **📰 Integrated Google Feed:** Quick access to global news via a seamless left-swipe experience with full navigation support.
-- **🛠 Category Management:** Empowering users to enable or disable categories based on their lifestyle.
-- **📳 Haptic Feedback:** Physical tactile response integrated into key interactions for a premium, responsive feel.
-- **🔋 Performance Optimized:** Powered by **Coil** for efficient, asynchronous icon loading and caching.
+> *"Karmaşıklığı animasyonların arkasına saklamaz, net işlevleri aşırı yüklemez. En kişisel cihazınızı benliğinizin bir uzantısı olarak ele alarak, yaptığınız her şeyi geleceğin ihtiyaçlarıyla uyumlu hale getirir."*
 
 ---
 
-## 🛠 Tech Stack
+## ✨ Tüm Öne Çıkan Özellikler ve Yenilikler
 
-Categorysym is built with modern Android development standards:
+### 1. 🚀 Dinamik & Özel Kategori Sistemi (Categorization Engine)
+- **20+ Fonksiyonel Kategori:** Uygulamaları *Communicator*, *Databank*, *X (Devices)*, *WWW*, *Market*, *Office*, *Uncategorized*, *System* gibi 8 varsayılan ve 12 isteğe bağlı kategoride otomatik sınıflandırır.
+- **Özel Kategori Oluşturma (Custom Categories):** Kullanıcılar kendi kategorilerini özel İsim, Renk (Hex), Notlar ve Örnek Uygulamalar ile oluşturabilir, düzenleyebilir veya silebilir.
+- **Akıllı Öğrenen Sıralama:** Kullanım sıklığına göre en çok kullanılan uygulamaları kategorilerin en başına getirir.
+- **Manuel Kategori Taşıma:** Herhangi bir uygulamaya uzun basarak istenen kategoriye manuel taşıma ve tercihi kalıcı olarak kaydetme.
+- **Kategori Açma/Satın Alma Slot Sistemi:** Ekstra kategori slotları yönetimi.
 
-- **Language:** 100% Kotlin
-- **UI:** Jetpack Compose (Declarative UI)
-- **Architecture:** MVVM (Model-View-ViewModel)
-- **Data Flow:** Kotlin Coroutines & Flow
-- **Persistence:** Jetpack DataStore (Asynchronous Preference Management)
-- **Security:** Android Biometric Library
-- **Image Loading:** Coil (Compose extension)
-- **Dependency Management:** Version Catalog (libs.versions.toml)
+### 2. 🔍 Gelişmiş Arama & Otomatik Kaydırma (Smart Search & Auto-Scroll)
+- **Otomatik Klavye Odaklanması:** Arama butonuna basıldığı anda arama çubuğuna odaklanılır ve klavye otomatik açılır.
+- **Akıllı Kategoriye Kaydırma (Auto-Scroll):** Aranan uygulama mevcut ekranda görünmüyorsa, sistem uygulamanın bulunduğu kategoriye **otomatik olarak yumuşak bir şekilde kaydırma (scroll)** yapar.
+- **Kararlı İmleç Yönetimi:** Arama çubuğunda harf yazılırken imleç her zaman yazılan metnin sağında (en sonunda) sabit kalır, ekran zıplamaları ve imleç kaymaları önlenmiştir.
+
+### 3. 📦 Detaylı Uygulama Yönetimi & Kaldırma (App Context Sheet)
+Uygulamalara uzun basıldığında açılan alt menü (`ModalBottomSheet`) üzerinden:
+- **Uygulama Bilgileri (App Info):** Doğrudan Android sistem ayarlarındaki uygulama detayları sayfasını açar (`Settings.ACTION_APPLICATION_DETAILS_SETTINGS`).
+- **Uygulamayı Kaldır (Uninstall App):** `REQUEST_DELETE_PACKAGES` izni ve `Intent.ACTION_DELETE` ile uygulamayı cihazdan güvenli şekilde silme diyaloğunu başlatır.
+- **Uygulamayı Gizleme / Gizlemekten Çıkarma (Hide / Unhide App):** Hassas uygulamaları ana ekrandan gizler.
+
+### 4. 🔒 Biyometrik Korumalı Gizli Bölüm (Secure Hidden Vault)
+- **Gelişmiş Güvenlik:** Gizlenen uygulamalar özel bir biyometrik korumalı sayfada (`HiddenAppsScreen`) saklanır.
+- **Çoklu Doğrulama:** Parmak izi, Yüz tanıma veya Cihaz PIN/Deseni (`BiometricPrompt` + `DEVICE_CREDENTIAL`) desteği.
+- **Otomatik Kilitleme:** Gizli bölümden çıkıldığında veya farklı bir sayfaya kaydırıldığında gizli kasa otomatik olarak kilitlenir.
+
+### 5. 📰 Entegre Keşfet / Haber Akışı (Discover Screen)
+- Sol taraftaki ilk sayfada (Page 0) entegre WebView destekli Keşfet/Haber akışı.
+- Donanım/Yazılım geri tuşu entegrasyonu (`BackHandler`) ile WebView içi gezinme desteği.
+
+### 6. 🎨 Uyumlu Durum Çubuğu & Arayüz Desteği (Adaptive Edge-to-Edge)
+- `SystemBarStyle.light` entegrasyonu ile cihaz ister Karanlık Mod ister Aydınlık Modda olsun, açık renkli zemin (`0xFFF7F7F9`) üzerinde okunaklı koyu renk durum çubuğu (status bar) ve navigasyon simgeleri.
+
+### 7. 📑 Senkronize Sayfalama & Akıllı İndikatör (Pager & Page Indicators)
+- Sayfalar arası dikey kaydırma pozisyonları birbiriyle senkronize tutulur.
+- **Akıllı Sayfa Göstergesi:** Haber Akışı (Gazete ikonu) ➔ Ana Sayfalar (1, 2, 3...) ➔ Gizli Bölüm (Kilit ikonu).
 
 ---
 
-## 📸 Screenshots
+## 🛠 Teknoloji Yığını (Tech Stack)
 
-*(Add your high-quality screenshots here to showcase the color-coded categories and the biometric screen)*
+Categorysym en güncel Android geliştirme standartlarına uygun olarak inşa edilmiştir:
+
+- **Programlama Dili:** %100 Kotlin
+- **Kullanıcı Arayüzü:** Jetpack Compose (Declarative UI & Material 3)
+- **Mimarisi:** MVVM (Model-View-ViewModel) + Clean Data Layer
+- **Reaktif Veri Akışı:** Kotlin Coroutines & StateFlow
+- **Yerel Depolama:** Jetpack DataStore Preferences (Asenkron Tercih Yönetimi)
+- **Biyometrik Güvenlik:** AndroidX Biometric Library
+- **Görsel Yükleme:** Coil (Compose Extension)
+- **Bağımlılık Yönetimi:** Gradle Version Catalog (`libs.versions.toml`)
+- **Hedef Sürüm:** Android 15 / 16 Desteği (`targetSdk = 36`, `compileSdk = 37`)
+
+---
+
+## 📜 Lisans
+
+Bu proje **GNU General Public License v3.0 (GPLv3)** ile lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına göz atabilirsiniz.
 
 ---
 
-## 📜 License
+## 👤 Geliştirici (Author)
 
-This project is licensed under the **GNU GPLv3** - see the [LICENSE](LICENSE) file for details. This license ensures that any derivatives of this code must also remain open source, protecting the creative integrity of the project.
+**Hayri Taha ÇATAR**
 
----
-
-## 👤 Author
-
-**[Your Name/Username]**
-- [LinkedIn](https://linkedin.com/in/yourprofile)
-- [Portfolio/Website](https://yourwebsite.com)
+- **LinkedIn:** [https://www.linkedin.com/in/hayritahacatar](https://www.linkedin.com/in/hayritahacatar)
+- **GitHub:** [https://github.com/hayritahacatar](https://github.com/hayritahacatar)
 
 ---
-*Created with the vision of purposeful design.*
+*Created with the vision of purposeful and intentional design.*
