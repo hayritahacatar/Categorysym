@@ -1,0 +1,6 @@
+- [x] Update `PageIndicator` logic in `DrawerScreen.kt` for smart pagination
+    - [x] Implement threshold check for `pageCount > 10`
+    - [x] Add logic for start, middle, and end segments with ellipses
+    - [x] Maintain consistent styling for icons and numbers
+- [x] Verify functionality with low and high page counts
+- [x] Create walkthrough
