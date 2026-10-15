@@ -24,7 +24,7 @@ import com.example.categorysym.data.AppItem
 
 @OptIn(
     ExperimentalFoundationApi::class,
-    ExperimentalMaterial3Api::class
+    ExperimentalMaterial3Api::class,
 )
 @Composable
 fun AppCardWithBackground(
@@ -34,11 +34,11 @@ fun AppCardWithBackground(
     isMoveEnabled: Boolean = true,
     onAppClick: (AppItem) -> Unit,
     onCategoryMove: (String) -> Unit,
-    onToggleHide: () -> Unit = {}
+    onToggleHide: () -> Unit = {},
 ) {
     val context = LocalContext.current
     val haptic = LocalHapticFeedback.current
-    var showSheet by remember { mutableStateOf(false) }
+    var showSheet by remember { mutableStateOf(value = false) }
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -166,8 +166,9 @@ fun AppCardWithBackground(
                                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                             }
                             context.startActivity(uninstallIntent)
-                        } catch (e: Exception) {
+                        } catch (_: Exception) {
                             try {
+                                @Suppress("DEPRECATION")
                                 val fallbackIntent = Intent(Intent.ACTION_UNINSTALL_PACKAGE, Uri.parse("package:${app.packageName}")).apply {
                                     putExtra(Intent.EXTRA_RETURN_RESULT, true)
                                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

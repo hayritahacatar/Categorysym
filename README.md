@@ -2,7 +2,7 @@
 
 > **"A mobile design philosophy inspired by the ancestors of this industry, prioritizing utility over decoration."**
 
-Categorysym, modern arayüzlerin aşırı animasyon ve süsleme odaklı trendlerine meydan okuyan, konsept odaklı bir Android Launcher uygulamasıdır. İşlevsel bütünlüğe, kategorik düzenlemeye ve minimalist bir estetiğe odaklanarak akıllı telefonunuzu amacınızın gerçek bir uzantısı haline getirir.
+Categorysym is a concept-driven Android launcher that challenges modern, overly decorative, animation-heavy interface trends. It focuses on functional integrity, efficient categorization, and a minimalist aesthetic—treating your smartphone as a true extension of your intent.
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Platform: Android](https://img.shields.io/badge/Platform-Android-brightgreen.svg)](https://android.com)
@@ -11,75 +11,75 @@ Categorysym, modern arayüzlerin aşırı animasyon ve süsleme odaklı trendler
 
 ---
 
-## 🏛 Manifesto
+## 🏛 The Manifesto
 
-Süslü ve karmaşık arayüz dönüşümlerinin aksına Categorysym netliği savunur:
+In an era of flashy overhauls and distracting UI elements, Categorysym stands for absolute clarity:
 
-> *"Karmaşıklığı animasyonların arkasına saklamaz, net işlevleri aşırı yüklemez. En kişisel cihazınızı benliğinizin bir uzantısı olarak ele alarak, yaptığınız her şeyi geleceğin ihtiyaçlarıyla uyumlu hale getirir."*
-
----
-
-## ✨ Tüm Öne Çıkan Özellikler ve Yenilikler
-
-### 1. 🚀 Dinamik & Özel Kategori Sistemi (Categorization Engine)
-- **20+ Fonksiyonel Kategori:** Uygulamaları *Communicator*, *Databank*, *X (Devices)*, *WWW*, *Market*, *Office*, *Uncategorized*, *System* gibi 8 varsayılan ve 12 isteğe bağlı kategoride otomatik sınıflandırır.
-- **Özel Kategori Oluşturma (Custom Categories):** Kullanıcılar kendi kategorilerini özel İsim, Renk (Hex), Notlar ve Örnek Uygulamalar ile oluşturabilir, düzenleyebilir veya silebilir.
-- **Akıllı Öğrenen Sıralama:** Kullanım sıklığına göre en çok kullanılan uygulamaları kategorilerin en başına getirir.
-- **Manuel Kategori Taşıma:** Herhangi bir uygulamaya uzun basarak istenen kategoriye manuel taşıma ve tercihi kalıcı olarak kaydetme.
-- **Kategori Açma/Satın Alma Slot Sistemi:** Ekstra kategori slotları yönetimi.
-
-### 2. 🔍 Gelişmiş Arama & Otomatik Kaydırma (Smart Search & Auto-Scroll)
-- **Otomatik Klavye Odaklanması:** Arama butonuna basıldığı anda arama çubuğuna odaklanılır ve klavye otomatik açılır.
-- **Akıllı Kategoriye Kaydırma (Auto-Scroll):** Aranan uygulama mevcut ekranda görünmüyorsa, sistem uygulamanın bulunduğu kategoriye **otomatik olarak yumuşak bir şekilde kaydırma (scroll)** yapar.
-- **Kararlı İmleç Yönetimi:** Arama çubuğunda harf yazılırken imleç her zaman yazılan metnin sağında (en sonunda) sabit kalır, ekran zıplamaları ve imleç kaymaları önlenmiştir.
-
-### 3. 📦 Detaylı Uygulama Yönetimi & Kaldırma (App Context Sheet)
-Uygulamalara uzun basıldığında açılan alt menü (`ModalBottomSheet`) üzerinden:
-- **Uygulama Bilgileri (App Info):** Doğrudan Android sistem ayarlarındaki uygulama detayları sayfasını açar (`Settings.ACTION_APPLICATION_DETAILS_SETTINGS`).
-- **Uygulamayı Kaldır (Uninstall App):** `REQUEST_DELETE_PACKAGES` izni ve `Intent.ACTION_DELETE` ile uygulamayı cihazdan güvenli şekilde silme diyaloğunu başlatır.
-- **Uygulamayı Gizleme / Gizlemekten Çıkarma (Hide / Unhide App):** Hassas uygulamaları ana ekrandan gizler.
-
-### 4. 🔒 Biyometrik Korumalı Gizli Bölüm (Secure Hidden Vault)
-- **Gelişmiş Güvenlik:** Gizlenen uygulamalar özel bir biyometrik korumalı sayfada (`HiddenAppsScreen`) saklanır.
-- **Çoklu Doğrulama:** Parmak izi, Yüz tanıma veya Cihaz PIN/Deseni (`BiometricPrompt` + `DEVICE_CREDENTIAL`) desteği.
-- **Otomatik Kilitleme:** Gizli bölümden çıkıldığında veya farklı bir sayfaya kaydırıldığında gizli kasa otomatik olarak kilitlenir.
-
-### 5. 📰 Entegre Keşfet / Haber Akışı (Discover Screen)
-- Sol taraftaki ilk sayfada (Page 0) entegre WebView destekli Keşfet/Haber akışı.
-- Donanım/Yazılım geri tuşu entegrasyonu (`BackHandler`) ile WebView içi gezinme desteği.
-
-### 6. 🎨 Uyumlu Durum Çubuğu & Arayüz Desteği (Adaptive Edge-to-Edge)
-- `SystemBarStyle.light` entegrasyonu ile cihaz ister Karanlık Mod ister Aydınlık Modda olsun, açık renkli zemin (`0xFFF7F7F9`) üzerinde okunaklı koyu renk durum çubuğu (status bar) ve navigasyon simgeleri.
-
-### 7. 📑 Senkronize Sayfalama & Akıllı İndikatör (Pager & Page Indicators)
-- Sayfalar arası dikey kaydırma pozisyonları birbiriyle senkronize tutulur.
-- **Akıllı Sayfa Göstergesi:** Haber Akışı (Gazete ikonu) ➔ Ana Sayfalar (1, 2, 3...) ➔ Gizli Bölüm (Kilit ikonu).
+> *"It neither hides complexity behind animations nor overhauls unambiguous functions. By treating your most personal device as an extension of self, it harmonizes everything you do with the needs of the future."*
 
 ---
 
-## 🛠 Teknoloji Yığını (Tech Stack)
+## ✨ Comprehensive Features
 
-Categorysym en güncel Android geliştirme standartlarına uygun olarak inşa edilmiştir:
+### 1. 🚀 Dynamic & Custom Categorization Engine
+- **20+ Functional Categories:** Automatically sorts installed applications into 8 default (*Communicator*, *Databank*, *X (Devices)*, *WWW*, *Market*, *Office*, *Uncategorized*, *System*) and 12 optional categories.
+- **Custom Category Creation:** Users can create, edit, or delete custom categories with tailored names, Hex colors, descriptions, and example application lists.
+- **Adaptive Usage-Based Sorting:** Learns your workflow and automatically brings your most frequently used apps to the top of each category.
+- **Manual App Re-assignment:** Long-press any application to move it to a different category and permanently store your preference.
+- **Category Slot Management:** Expansion slots system for managing active categories.
 
-- **Programlama Dili:** %100 Kotlin
-- **Kullanıcı Arayüzü:** Jetpack Compose (Declarative UI & Material 3)
-- **Mimarisi:** MVVM (Model-View-ViewModel) + Clean Data Layer
-- **Reaktif Veri Akışı:** Kotlin Coroutines & StateFlow
-- **Yerel Depolama:** Jetpack DataStore Preferences (Asenkron Tercih Yönetimi)
-- **Biyometrik Güvenlik:** AndroidX Biometric Library
-- **Görsel Yükleme:** Coil (Compose Extension)
-- **Bağımlılık Yönetimi:** Gradle Version Catalog (`libs.versions.toml`)
-- **Hedef Sürüm:** Android 15 / 16 Desteği (`targetSdk = 36`, `compileSdk = 37`)
+### 2. 🔍 Advanced App Search & Auto-Scroll Navigation
+- **Automatic Keyboard Focus:** Tapping the search icon immediately focuses the input field and displays the soft keyboard (`FocusRequester` + `LocalSoftwareKeyboardController`).
+- **Target Category Auto-Scroll:** When searching for an application that is not currently visible on the screen, the launcher **automatically performs a smooth scroll** directly to the target category.
+- **Stable Cursor Management:** Prevents layout jumping or cursor resetting while typing—keeping the cursor reliably at the end of the text input (`TextFieldValue`).
+
+### 3. 📦 Comprehensive App Management & Uninstallation
+Long-pressing any application opens a bottom context sheet (`ModalBottomSheet`) offering:
+- **App Info:** Direct access to system application settings (`Settings.ACTION_APPLICATION_DETAILS_SETTINGS`).
+- **Uninstall App:** Directly triggers the system package uninstaller dialog via `REQUEST_DELETE_PACKAGES` permission and `Intent.ACTION_DELETE`.
+- **Hide / Unhide App:** Easily move sensitive or infrequently used applications to the secure hidden vault.
+
+### 4. 🔒 Biometric Vault (Hidden Apps)
+- **Enhanced Privacy:** Hidden applications are isolated in a dedicated biometric vault (`HiddenAppsScreen`).
+- **Multi-Factor Security:** Authenticate via Fingerprint, Face Recognition, or Device Credentials (PIN/Pattern) via `BiometricPrompt`.
+- **Auto-Locking:** The hidden vault automatically re-locks whenever you navigate away or swipe to another page.
+
+### 5. 📰 Integrated Discover & News Feed
+- Built-in news feed on the left-most page (Page 0) powered by an embedded WebView (`DiscoverScreen`).
+- Full hardware and software back button support (`BackHandler`) for seamless WebView history navigation.
+
+### 6. 🎨 Adaptive Edge-to-Edge System Bar Legibility
+- Enforces legible dark status bar and navigation bar icons via `SystemBarStyle.light` over the light background (`0xFFF7F7F9`), regardless of system-wide dark mode settings.
+
+### 7. 📑 Synchronized Page Layout & Smart Page Indicator
+- Synchronizes vertical scroll offsets across horizontal pages (`HorizontalPager` + `LazyListState`).
+- **Smart Page Indicator:** Displays News Feed (Newspaper Icon) ➔ Launcher Pages (1, 2, 3...) ➔ Biometric Vault (Lock Icon).
 
 ---
 
-## 📜 Lisans
+## 🛠 Tech Stack & Architecture
 
-Bu proje **GNU General Public License v3.0 (GPLv3)** ile lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına göz atabilirsiniz.
+Categorysym is built following modern Android engineering standards:
+
+- **Language:** 100% Kotlin
+- **UI Framework:** Jetpack Compose (Declarative UI & Material 3)
+- **Architecture Pattern:** MVVM (Model-View-ViewModel) + Clean Data Layer
+- **Reactive Data Flow:** Kotlin Coroutines & `StateFlow`
+- **Data Persistence:** Jetpack DataStore Preferences (Asynchronous preference management)
+- **Biometric Authentication:** AndroidX Biometric Library
+- **Image Loading & Caching:** Coil (Compose Extension)
+- **Dependency Management:** Gradle Version Catalog (`libs.versions.toml`)
+- **SDK Target:** Target SDK 36 (Android 15 / 16 support, `compileSdk = 37`)
 
 ---
 
-## 👤 Geliştirici (Author)
+## 📜 License
+
+This project is licensed under the **GNU General Public License v3.0 (GPLv3)** - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👤 Author
 
 **Hayri Taha ÇATAR**
 
@@ -87,4 +87,4 @@ Bu proje **GNU General Public License v3.0 (GPLv3)** ile lisanslanmıştır. Det
 - **GitHub:** [https://github.com/hayritahacatar](https://github.com/hayritahacatar)
 
 ---
-*Created with the vision of purposeful and intentional design.*
+*Created with the vision of purposeful and intentional mobile design.*

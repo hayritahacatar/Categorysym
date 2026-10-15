@@ -24,14 +24,11 @@ val categoryColors = listOf(
     Color(0xFF673AB7), // 17. Social Media - Deep Purple
     Color(0xFFFF5252), // 18. Health - Red Accent
     Color(0xFF1B5E20), // 19. Bet - Dark Green
-    Color(0xFFFFD600)  // 20. Productivity - Gold
+    Color(0xFFFFD600), // 20. Productivity - Gold
 )
 
 fun buildSections(categories: List<Category>): List<CategorySection> {
-    return categories.mapIndexed { index, category ->
-        // Note: index might not match categoryColors exactly if categories are filtered
-        // but we'll use the category name to find the "stable" color if we want consistency.
-        // For now, let's keep index % size or look up by name.
+    return categories.map { category ->
         val color = getCategoryColor(category.name)
         CategorySection(
             name = category.name,
@@ -71,7 +68,7 @@ fun parseColor(hex: String): Color {
     return try {
         val sanitizedHex = if (!hex.startsWith("#")) "#$hex" else hex
         Color(android.graphics.Color.parseColor(sanitizedHex))
-    } catch (e: Exception) {
+    } catch (_: Exception) {
         Color.Gray
     }
 }

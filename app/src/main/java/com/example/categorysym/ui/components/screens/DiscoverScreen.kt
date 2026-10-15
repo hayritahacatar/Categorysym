@@ -1,5 +1,6 @@
-package com.example.categorysym.ui.screens
+package com.example.categorysym.ui.components.screens
 
+import android.annotation.SuppressLint
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -13,17 +14,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 
+@SuppressLint("SetJavaScriptEnabled")
 @Composable
 fun DiscoverScreen(onWebViewCreated: (WebView) -> Unit) {
     var webViewInstance by remember { mutableStateOf<WebView?>(null) }
-    var canGoBack by remember { mutableStateOf(false) }
+    var canGoBack by remember { mutableStateOf(value = false) }
 
     Column(modifier = Modifier.fillMaxSize()) {
         // Simple Top Bar for WebView Navigation
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(44.dp)
+                .height(44.dp),
         ) {
             IconButton(
                 onClick = { webViewInstance?.goBack() },

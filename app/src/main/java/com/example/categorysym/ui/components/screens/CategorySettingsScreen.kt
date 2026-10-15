@@ -1,4 +1,4 @@
-package com.example.categorysym.ui.screens
+package com.example.categorysym.ui.components.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -34,9 +34,9 @@ fun CategorySettingsScreen(
     onUpdateCustomCategory: (String, String, String, String, String) -> Unit,
     onDeleteCustomCategory: (String) -> Unit,
     onResetManualCategories: () -> Unit,
-    onDismiss: () -> Unit
+    onDismiss: () -> Unit,
 ) {
-    var showAboutDialog by remember { mutableStateOf(false) }
+    var showAboutDialog by remember { mutableStateOf(value = false) }
     var infoCategoryName by remember { mutableStateOf<String?>(null) }
     var showCreateDialog by remember { mutableStateOf(false) }
     var editingCategory by remember { mutableStateOf<CustomCategory?>(null) }

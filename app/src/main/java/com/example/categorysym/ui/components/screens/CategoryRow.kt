@@ -1,4 +1,4 @@
-package com.example.categorysym.ui.screens
+package com.example.categorysym.ui.components.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*

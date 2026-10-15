@@ -1,4 +1,4 @@
-package com.example.categorysym.ui.screens
+package com.example.categorysym.ui.components.screens
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
@@ -17,7 +17,7 @@ fun DrawerPageScreen(
     listState: LazyListState = rememberLazyListState(),
     onAppClick: (AppItem) -> Unit,
     onCategoryMove: (AppItem, String) -> Unit,
-    onToggleHide: (AppItem) -> Unit = {}
+    onToggleHide: (AppItem) -> Unit = {},
 ) {
     LazyColumn(
         state = listState,

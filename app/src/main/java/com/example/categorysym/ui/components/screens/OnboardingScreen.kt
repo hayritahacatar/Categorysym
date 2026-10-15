@@ -1,6 +1,5 @@
-package com.example.categorysym.ui.screens
+package com.example.categorysym.ui.components.screens
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -18,7 +17,7 @@ import androidx.compose.ui.unit.sp
 fun OnboardingScreen(onDismiss: () -> Unit) {
     Surface(
         modifier = Modifier.fillMaxSize(),
-        color = Color(0xFFF7F7F9)
+        color = Color(0xFFF7F7F9),
     ) {
         Column(
             modifier = Modifier

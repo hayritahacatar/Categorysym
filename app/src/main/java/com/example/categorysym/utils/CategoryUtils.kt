@@ -38,7 +38,7 @@ fun categorize(
     val productivity = mutableListOf<AppItem>()
     
     // Dynamic maps for custom categories
-    val customAppsMap = customCategories.associate { it.name to mutableListOf<AppItem>() }
+    val customAppsMap = customCategories.associateBy({ it.name }, { mutableListOf<AppItem>() })
 
     fun isEnabled(name: String) = enabledCategories.contains(name)
 
@@ -49,7 +49,7 @@ fun categorize(
             val pkg = app.packageName.lowercase()
 
             val learnedCategory = learnedCategories[app.packageName]
-            if (learnedCategory != null && learnedCategory.isNotBlank()) {
+            if (!learnedCategory.isNullOrBlank()) {
                 // If the user manually moved it to a category that is currently disabled, 
                 // we still respect the manual move but might need to show it in Unknown if we want strict enforcement.
                 // However, usually manual move means "I want it here", so we'll treat it as a priority.

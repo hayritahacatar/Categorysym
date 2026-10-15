@@ -53,16 +53,16 @@ class LauncherDataStore(private val context: Context) {
 
     // Helper to get all usages at once (useful for sorting)
     val allUsagesFlow: Flow<Map<String, Int>> = context.dataStore.data.map { preferences ->
-        preferences.asMap().entries
+        preferences.asMap().entries.asSequence()
             .filter { it.key.name.startsWith("usage_") }
-            .associate { it.key.name.removePrefix("usage_") to (it.value as? Int ?: 0) }
+            .associate { (it.key.name.removePrefix("usage_")) to (it.value as? Int ?: 0) }
     }
 
     // Helper to get all learned categories at once
     val allCategoriesFlow: Flow<Map<String, String>> = context.dataStore.data.map { preferences ->
-        preferences.asMap().entries
+        preferences.asMap().entries.asSequence()
             .filter { it.key.name.startsWith("cat_") }
-            .associate { it.key.name.removePrefix("cat_") to (it.value as? String ?: "") }
+            .associate { (it.key.name.removePrefix("cat_")) to (it.value as? String ?: "") }
     }
 
     // Hidden packages
@@ -124,7 +124,7 @@ class LauncherDataStore(private val context: Context) {
         context.dataStore.edit { preferences ->
             val json = preferences[CUSTOM_CATEGORIES_KEY] ?: ""
             val type = object : TypeToken<List<CustomCategory>>() {}.type
-            val currentList = if (json.isBlank()) mutableListOf<CustomCategory>()
+            val currentList = if (json.isBlank()) mutableListOf()
             else gson.fromJson<MutableList<CustomCategory>>(json, type)
             
             currentList.add(category)

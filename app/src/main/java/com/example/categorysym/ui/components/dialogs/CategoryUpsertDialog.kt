@@ -9,7 +9,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -21,7 +20,7 @@ import com.example.categorysym.data.CustomCategory
 fun CategoryUpsertDialog(
     initialCategory: CustomCategory? = null,
     onConfirm: (name: String, color: String, note: String, examples: String) -> Unit,
-    onDismiss: () -> Unit
+    onDismiss: () -> Unit,
 ) {
     var name by remember { mutableStateOf(initialCategory?.name ?: "") }
     var colorHex by remember { mutableStateOf(initialCategory?.colorHex ?: "#616161") }
@@ -80,7 +79,7 @@ fun CategoryUpsertDialog(
                     maxItemsInEachRow = 4
                 ) {
                     presetColors.forEach { hex ->
-                        val isSelected = colorHex.lowercase() == hex.lowercase()
+                        val isSelected = colorHex.equals(hex, ignoreCase = true)
                         Box(
                             modifier = Modifier
                                 .size(40.dp)
@@ -100,7 +99,7 @@ fun CategoryUpsertDialog(
 
                 OutlinedTextField(
                     value = colorHex,
-                    onValueChange = { if (it.startsWith("#") && it.length <= 7) colorHex = it },
+                    onValueChange = { if (it.startsWith("#") && (it.length <= 7)) colorHex = it },
                     label = { Text("Custom Hex Color") },
                     singleLine = true,
                     modifier = Modifier.fillMaxWidth(),
@@ -131,7 +130,6 @@ fun CategoryUpsertDialog(
     )
 }
 
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun FlowRow(
     modifier: Modifier = Modifier,
