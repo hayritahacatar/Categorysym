@@ -8,10 +8,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.categorysym.R
 
 @Composable
 fun OnboardingScreen(onDismiss: () -> Unit) {
@@ -28,14 +30,14 @@ fun OnboardingScreen(onDismiss: () -> Unit) {
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Categorysym",
+                text = stringResource(R.string.app_name),
                 fontSize = 32.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.Black
             )
             
             Text(
-                text = "A New Way to Organize Your Digital Life",
+                text = stringResource(R.string.onboarding_subtitle),
                 fontSize = 14.sp,
                 color = Color.Gray,
                 modifier = Modifier.padding(top = 8.dp)
@@ -44,7 +46,7 @@ fun OnboardingScreen(onDismiss: () -> Unit) {
             Spacer(modifier = Modifier.height(48.dp))
 
             Text(
-                text = "MANIFESTO",
+                text = stringResource(R.string.manifesto_header),
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
                 letterSpacing = 2.sp,
@@ -54,7 +56,7 @@ fun OnboardingScreen(onDismiss: () -> Unit) {
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "\"A mobile design philosophy inspired by the ancestors of this industry, prioritizing utility over decoration. It neither hides complexity behind animations nor overhauls unambiguous functions. By treating your most personal device as an extension of self, it harmonizes everything you do with the needs of the future.\"",
+                text = stringResource(R.string.manifesto_text),
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Medium,
                 lineHeight = 28.sp,
@@ -74,7 +76,7 @@ fun OnboardingScreen(onDismiss: () -> Unit) {
                     contentColor = Color.White
                 )
             ) {
-                Text(text = "Get Started", fontSize = 16.sp)
+                Text(text = stringResource(R.string.get_started), fontSize = 16.sp)
             }
         }
     }

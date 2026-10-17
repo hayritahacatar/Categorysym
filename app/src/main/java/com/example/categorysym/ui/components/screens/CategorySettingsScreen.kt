@@ -12,10 +12,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.categorysym.R
 import com.example.categorysym.data.CustomCategory
 import com.example.categorysym.data.LauncherDataStore
 import com.example.categorysym.ui.components.dialogs.CategoryUpsertDialog
@@ -51,7 +53,7 @@ fun CategorySettingsScreen(
                 .padding(bottom = 32.dp)
         ) {
             Text(
-                text = "Manage Categories",
+                text = stringResource(R.string.category_settings),
                 fontSize = 20.sp,
                 style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier.padding(vertical = 16.dp)
@@ -60,7 +62,7 @@ fun CategorySettingsScreen(
             LazyColumn(modifier = Modifier.fillMaxWidth().heightIn(max = 450.dp)) {
                 // 1. Standard Categories
                 item {
-                    Text("Standard System", fontSize = 12.sp, fontWeight = FontWeight.Bold, color = Color.Gray)
+                    Text(stringResource(R.string.enable_disable_categories), fontSize = 12.sp, fontWeight = FontWeight.Bold, color = Color.Gray)
                     Spacer(modifier = Modifier.height(8.dp))
                 }
                 
@@ -99,7 +101,7 @@ fun CategorySettingsScreen(
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(Icons.Default.Stars, contentDescription = null, tint = Color(0xFFFFD600), modifier = Modifier.size(16.dp))
                         Spacer(modifier = Modifier.width(4.dp))
-                        Text("Premium Slots", fontSize = 12.sp, fontWeight = FontWeight.Bold, color = Color.Black)
+                        Text(stringResource(R.string.custom_categories), fontSize = 12.sp, fontWeight = FontWeight.Bold, color = Color.Black)
                     }
                 }
 
@@ -123,7 +125,7 @@ fun CategorySettingsScreen(
                                 modifier = Modifier.weight(1f).padding(end = 4.dp),
                                 colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
                             ) {
-                                Text("Buy Slot ($0.99)")
+                                Text(stringResource(R.string.buy_slot))
                             }
                             
                             Button(
@@ -133,7 +135,7 @@ fun CategorySettingsScreen(
                             ) {
                                 Icon(Icons.Default.Add, contentDescription = null)
                                 Spacer(modifier = Modifier.width(4.dp))
-                                Text("Create")
+                                Text(stringResource(R.string.create))
                             }
                         }
                     }
@@ -173,7 +175,7 @@ fun CategorySettingsScreen(
                 onClick = { showResetConfirm = true }
             ) {
                 Text(
-                    text = "Reset App Categorization",
+                    text = stringResource(R.string.reset_manual_categories),
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Start,
                     color = Color.Red.copy(alpha = 0.7f)
@@ -185,7 +187,7 @@ fun CategorySettingsScreen(
                 onClick = { showAboutDialog = true }
             ) {
                 Text(
-                    text = "About Categorysym",
+                    text = stringResource(R.string.about_title),
                     modifier = Modifier.fillMaxWidth(),
                     textAlign = TextAlign.Start,
                     color = Color.Black
@@ -203,22 +205,22 @@ fun CategorySettingsScreen(
             onDismissRequest = { infoCategoryName = null },
             confirmButton = {
                 TextButton(onClick = { infoCategoryName = null }) {
-                    Text("Got it")
+                    Text(stringResource(R.string.got_it))
                 }
             },
             title = { Text(name) },
             text = {
                 Column {
                     if (info != null) {
-                        Text(text = info.description, fontSize = 14.sp)
+                        Text(text = stringResource(info.descriptionRes), fontSize = 14.sp)
                         Spacer(modifier = Modifier.height(12.dp))
-                        Text(text = "Examples:", fontSize = 12.sp, fontWeight = FontWeight.Bold, color = Color.Gray)
-                        Text(text = info.examples, fontSize = 14.sp)
+                        Text(text = stringResource(R.string.examples_label), fontSize = 12.sp, fontWeight = FontWeight.Bold, color = Color.Gray)
+                        Text(text = stringResource(info.examplesRes), fontSize = 14.sp)
                     } else if (custom != null) {
                         Text(text = custom.note, fontSize = 14.sp)
                         if (custom.examples.isNotBlank()) {
                             Spacer(modifier = Modifier.height(12.dp))
-                            Text(text = "Examples:", fontSize = 12.sp, fontWeight = FontWeight.Bold, color = Color.Gray)
+                            Text(text = stringResource(R.string.examples_label), fontSize = 12.sp, fontWeight = FontWeight.Bold, color = Color.Gray)
                             Text(text = custom.examples, fontSize = 14.sp)
                         }
                     }
@@ -232,13 +234,13 @@ fun CategorySettingsScreen(
             onDismissRequest = { showAboutDialog = false },
             confirmButton = {
                 TextButton(onClick = { showAboutDialog = false }) {
-                    Text("Close")
+                    Text(stringResource(R.string.close))
                 }
             },
-            title = { Text("About Categorysym") },
+            title = { Text(stringResource(R.string.about_title)) },
             text = {
                 Text(
-                    text = "\"A mobile design philosophy inspired by the ancestors of this industry, prioritizing utility over decoration. It neither hides complexity behind animations nor overhauls unambiguous functions. By treating your most personal device as an extension of self, it harmonizes everything you do with the needs of the future.\"",
+                    text = stringResource(R.string.manifesto_text),
                     fontSize = 16.sp,
                     lineHeight = 24.sp
                 )
@@ -273,7 +275,7 @@ fun CategorySettingsScreen(
         val categoryToDelete = customCategories.find { it.id == deleteConfirmId }
         AlertDialog(
             onDismissRequest = { deleteConfirmId = null },
-            title = { Text("Delete Custom Category?") },
+            title = { Text(stringResource(R.string.delete)) },
             text = {
                 Column {
                     Text(
@@ -297,12 +299,12 @@ fun CategorySettingsScreen(
                     },
                     colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
                 ) {
-                    Text("Confirm Delete", color = Color.White)
+                    Text(stringResource(R.string.delete), color = Color.White)
                 }
             },
             dismissButton = {
                 TextButton(onClick = { deleteConfirmId = null }) {
-                    Text("Cancel")
+                    Text(stringResource(R.string.cancel))
                 }
             }
         )
@@ -311,9 +313,9 @@ fun CategorySettingsScreen(
     if (showResetConfirm) {
         AlertDialog(
             onDismissRequest = { showResetConfirm = false },
-            title = { Text("Reset All Manual Moves?") },
+            title = { Text(stringResource(R.string.reset_confirm_title)) },
             text = {
-                Text("This will clear all manual app assignments. Every application will return to its default system-assigned category. This action is permanent.")
+                Text(stringResource(R.string.reset_confirm_message))
             },
             confirmButton = {
                 Button(
@@ -323,12 +325,12 @@ fun CategorySettingsScreen(
                     },
                     colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
                 ) {
-                    Text("Reset Everything", color = Color.White)
+                    Text(stringResource(R.string.reset), color = Color.White)
                 }
             },
             dismissButton = {
                 TextButton(onClick = { showResetConfirm = false }) {
-                    Text("Cancel")
+                    Text(stringResource(R.string.cancel))
                 }
             }
         )

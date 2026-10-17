@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Categorysym</string>
+
+    <!-- Ortak & Navigasyon -->
+    <string name="search_apps_placeholder">Uygulama ara</string>
+    <string name="search">Ara</string>
+    <string name="settings">Ayarlar</string>
+    <string name="close">Kapat</string>
+    <string name="cancel">İptal</string>
+    <string name="save">Kaydet</string>
+    <string name="create">Oluştur</string>
+    <string name="got_it">Anladım</string>
+    <string name="back">Geri</string>
+    <string name="examples_label">Örnekler:</string>
+    <string name="delete">Sil</string>
+    <string name="reset">Sıfırla</string>
+
+    <!-- Uygulama Seçenekler Menüsü -->
+    <string name="move_app_to">%1$s uygulamasını şuraya taşı:</string>
+    <string name="hidden_app_options">Gizli Uygulama Seçenekleri</string>
+    <string name="hide_app">Uygulamayı Gizle</string>
+    <string name="unhide_app">Gizlemekten Çıkar</string>
+    <string name="app_info">Uygulama Bilgisi</string>
+    <string name="uninstall_app">Uygulamayı Kaldır</string>
+    <string name="could_not_uninstall">%1$s uygulaması kaldırılamadı</string>
+
+    <!-- Ana Ekran & Gizli Kasa -->
+    <string name="news_feed">Haber Akışı</string>
+    <string name="hidden_apps">Gizli Uygulamalar</string>
+    <string name="unlock_hidden_apps">Gizli Bölümün Kilidini Aç</string>
+    <string name="no_hidden_apps_yet">Henüz gizlenmiş uygulama yok.\nBir uygulamayı gizlemek için üzerine uzun basın.</string>
+    <string name="auth_error">Kimlik doğrulama hatası: %1$s</string>
+    <string name="no_security_enrolled">Gizli bölümü kullanabilmek için cihazınızda PIN, Desen veya Parmak İzi ayarlanmalıdır.</string>
+    <string name="device_not_supported">Cihazınız bu güvenlik özelliğini desteklemiyor.</string>
+    <string name="hidden_section_title">Gizli Bölüm Erişimi</string>
+    <string name="hidden_section_subtitle">Devam etmek için kilit açın</string>
+    <string name="about_title">Categorysym Hakkında</string>
+    <string name="manifesto_text">\"Süsten çok işlevselliğe öncelik veren, bu sektörün atalarından esinlenmiş bir mobil tasarım felsefesi. Karmaşıklığı ne animasyonların arkasına saklar ne de net işlevleri aşırı yükler. En kişisel cihazınızı benliğinizin bir uzantısı olarak ele alarak, yaptığınız her şeyi geleceğin ihtiyaçlarıyla uyumlu hale getirir.\"</string>
+
+    <!-- Onboarding Ekranı -->
+    <string name="onboarding_subtitle">Dijital Yaşamınızı Düzenlemenin Yeni Yolu</string>
+    <string name="manifesto_header">MANIFESTO</string>
+    <string name="get_started">Başlayalım</string>
+
+    <!-- Kategori Ayarları -->
+    <string name="category_settings">Kategori Ayarları</string>
+    <string name="enable_disable_categories">Standart Kategorileri Etkinleştir veya Devre Dışı Bırak</string>
+    <string name="custom_categories">Özel Kategoriler</string>
+    <string name="buy_slot">Kategori Slotu Satın Al</string>
+    <string name="reset_manual_categories">Manuel Taşımaları Sıfırla</string>
+    <string name="reset_confirm_title">Manuel Taşımalar Sıfırlansın mı?</string>
+    <string name="reset_confirm_message">Tüm manuel uygulama taşıma tercihleriniz varsayılan kategorilerine sıfırlanacaktır.</string>
+    <string name="create_custom_category">Özel Kategori Oluştur</string>
+    <string name="edit_custom_category">Özel Kategoriyi Düzenle</string>
+
+    <!-- Kategori Düzenleme Diyaloğu -->
+    <string name="category_name">Kategori Adı</string>
+    <string name="select_color">Renk Seç</string>
+    <string name="custom_hex_color">Özel Hex Rengi</string>
+    <string name="description_manifesto">Açıklama / Manifesto</string>
+    <string name="description_placeholder">Bu kategoriyi neden oluşturuyorsunuz?</string>
+    <string name="example_apps">Örnek Uygulamalar</string>
+    <string name="example_apps_placeholder">Buraya hangi uygulamalar ait?</string>
+
+    <!-- Kategori Açıklamaları -->
+    <string name="desc_communicator">İnsan bağlantısı ve gerçek zamanlı diyalog merkezi. Doğrudan iletişime ve topluluk bağlarına öncelik verir.</string>
+    <string name="ex_communicator">WhatsApp, Telegram, Discord, Signal, Telefon, Kişiler, Zoom, Teams.</string>
+
+    <string name="desc_databank">Mobil araçların mirasından türetilen temel kişisel araçlar. Telefonları kişisel dijital asistanlara dönüştüren temel işlevlerdir.</string>
+    <string name="ex_databank">Takvim, Saat, Hesap Makinesi, Ses Kaydedici, Keep, Notlar, Çeviri.</string>
+
+    <string name="desc_x_devices">Bağımsız fiziksel donanımların dijital alternatifleri. Akıllı telefonların tek bir deneyimde başarıyla birleştirdiği cihazları temsil eder.</string>
+    <string name="ex_x_devices">Müzik Çalarlar (Walkman/iPod), Kamera, Galeri, Google Haritalar, Yandex Haritalar, Moovit, Pegasus.</string>
+
+    <string name="desc_www">Küresel ağa ve merkeziyetsiz depolamaya açılan kapınız. Web keşfini, bulut erişilebilirliğini ve güvenli bağlantıları kapsar.</string>
+    <string name="ex_www">Chrome, Firefox, Google Uygulaması, Google Drive, OneDrive, Dropbox, VPN, E-posta istemcileri, obilet.</string>
+
+    <string name="desc_market">Ticaret ve hizmet merkezi. Fiziksel pazar yerinin dijital, talep üzerine bir ekosisteme dönüşümünü temsil eder.</string>
+    <string name="ex_market">Play Store, Amazon, Temu, Getir, Yemeksepeti, Trendyol, Hepsiburada, A101, Algida, Hopi.</string>
+
+    <string name="desc_office">Profesyonel verimlilik ve belge bütünlüğü. Kurumsal varlıkların resmi olarak oluşturulmasına, görüntülenmesine ve yönetilmesine adanmış bir çalışma alanı.</string>
+    <string name="ex_office">Word, Excel, Google Dokümanlar, Tablolar, Slaytlar, PDF Görüntüleyiciler, Adobe Acrobat, Belge Tarayıcılar.</string>
+
+    <string name="desc_uncategorized">Başlatıcının örgütlenme felsefesi dahilinde henüz belirli bir amaç atanmamış uygulamalar için geçici bir alan.</string>
+    <string name="ex_uncategorized">Yeni yüklenen uygulamalar, deneysel araçlar.</string>
+
+    <string name="desc_system">Motor odası ve ekosistem yöneticisi. Cihazın dahili mantığını ve dijital yaşamınıza bağlı harici donanımları kontrol eder.</string>
+    <string name="ex_system">Ayarlar, Güvenlik, Yerel Dosya Yöneticileri (WinRAR), Akıllı Ev (Huawei AI Life, SmartThings), Giyilebilir Cihaz Yönetimi, Arctis, Speedtest.</string>
+
+    <string name="desc_social_media">Yüksek etkileşimli topluluk etkileşimi ve paylaşılan dijital deneyimler. Bu platformlar sosyal doğrulama ve içerik paylaşımına odaklanır.</string>
+    <string name="ex_social_media">YouTube, Instagram, Facebook, X (Twitter), Threads, Reddit, TikTok.</string>
+
+    <string name="desc_mass_media">Gerçek zamanlı küresel habercilik ve yayın kültürü. Geleneksel basını ve televizyonu avucunuzun içine getirir.</string>
+    <string name="ex_mass_media">Dijital Gazeteler, Haber Portalları, TV Kanalları, Haberler, Gazeteler.</string>
+
+    <string name="desc_games">Dijital oyun alanı. Nostaljik emülasyonlardan modern mobil şaheserlere kadar tüm etkileşimli eğlence yelpazesini kapsar.</string>
+    <string name="ex_games">Steam, Xbox, PlayStation App, PSP/PS2 Emülatörleri, Clash of Clans, SimCity, Roblox, Angry Birds, Satranç, Sudoku.</string>
+
+    <string name="desc_entertainment">Pasif medya tüketimi ve kültürel erişim. Sanatın, sinemanın ve canlı etkinliklerin tadını çıkarmaya odaklanır.</string>
+    <string name="ex_entertainment">Netflix, Disney+, HBO Max, Amazon Prime Video, Sinema/Tiyatro Biletleri, Angel.</string>
+
+    <string name="desc_finance">Kişisel ve kurumsal servet yönetimi. Ekonomik potansiyelinizi izlemek ve yönetmek için güvenli bir ortam.</string>
+    <string name="ex_finance">Banka Uygulamaları (GarantiBBVA, İşCep, Yapı Kredi), Borsa Takipçileri, Kripto Cüzdanları, Binance, PayPal, BonusFlaş, DövizApp.</string>
+
+    <string name="desc_reference">Kritik bilgiler ve resmi kapılar. Bunlar idari ve güvenlik açısından kritik veriler için güvenilir kaynaklardır.</string>
+    <string name="ex_reference">e-Devlet, e-Nabız, MHRS, ÖSYM AİS, Şifre Yöneticileri (KeePass, Bitwarden), Kimlik Doğrulayıcılar (Authenticator).</string>
+
+    <string name="desc_books">Edebi ve manevi kütüphane. Uzun süreli okumaya, dil araçlarına ve dini rehberliğe adanmıştır.</string>
+    <string name="ex_books">Kindle, Google Kitaplar, Sözlükler, Namaz Vakti, Kuran-ı Kerim, Kutsal Kitap.</string>
+
+    <string name="desc_education">Hayat boyu öğrenme yolculuğu. Yeni beceriler ve bilgiler edinmeyi kolaylaştıran platformları içerir.</string>
+    <string name="ex_education">Udemy, BTK Akademi, LinkedIn Learning, StackOverflow, GitHub, Duolingo.</string>
+
+    <string name="desc_business">Profesyonel büyüme ve hizmet edinimi. İşgücü arzı ile profesyonel fırsatlar arasındaki boşluğu doldurur.</string>
+    <string name="ex_business">LinkedIn, Kariyer.net, Yenibiriş, Indeed, Armut, İŞKUR Mobil, Profesyonel İşe Alım Araçları.</string>
+
+    <string name="desc_health">Bütünsel refah takibi. Cihazı fiziksel ve biyolojik sağlığı izlemek için bir yol arkadaşına dönüştürür.</string>
+    <string name="ex_health">Fitness Koçluğu, Aktivite Takipçileri, Adet Döngüsü Takipçileri, Tıbbi Kayıtlar.</string>
+
+    <string name="desc_bet">Stratejik oyunlar ve rekabetçi lig takibi. Spor tabanlı tahmin pazarlarının analizine ve katılımına odaklanır.</string>
+    <string name="ex_bet">Lig Takipçileri (Maçkolik), Nesine, Misli, İddaa Uygulamaları.</string>
+
+    <string name="desc_productivity">Üretken yaratımın merkezi. AI ve gelişmiş düzenleme araçlarını kullanarak kullanıcının yeni değer üretmesini sağlar.</string>
+    <string name="ex_productivity">ChatGPT, Gemini, Claude, Video/Fotoğraf Düzenleyiciler (CapCut, Canva), YT Studio, Çizim Araçları.</string>
+</resources>

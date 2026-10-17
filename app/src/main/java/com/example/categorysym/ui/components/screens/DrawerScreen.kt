@@ -3,8 +3,10 @@ package com.example.categorysym.ui.components.screens
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.TextRange
+import com.example.categorysym.R
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.pager.HorizontalPager
@@ -346,7 +348,7 @@ fun SearchBar(
         },
         placeholder = {
             Text(
-                text = "Search apps",
+                text = stringResource(R.string.search_apps_placeholder),
                 color = Color.Gray
             )
         },
@@ -357,7 +359,7 @@ fun SearchBar(
         leadingIcon = {
             Icon(
                 imageVector = Icons.Default.Search,
-                contentDescription = "Search",
+                contentDescription = stringResource(R.string.search),
                 tint = Color.Black
             )
         },
@@ -365,7 +367,7 @@ fun SearchBar(
             IconButton(onClick = onClose) {
                 Icon(
                     imageVector = Icons.Default.Close,
-                    contentDescription = "Close",
+                    contentDescription = stringResource(R.string.close),
                     tint = Color.Black
                 )
             }
@@ -453,7 +455,7 @@ private fun PageIndicatorItem(index: Int, pageCount: Int, currentPage: Int) {
         index == 0 -> {
             Icon(
                 imageVector = Icons.Default.Newspaper,
-                contentDescription = "News Feed",
+                contentDescription = stringResource(R.string.news_feed),
                 tint = if (selected) Color.Black else Color.Gray.copy(alpha = 0.5f),
                 modifier = Modifier
                     .size(if (selected) 20.dp else 16.dp)
@@ -463,7 +465,7 @@ private fun PageIndicatorItem(index: Int, pageCount: Int, currentPage: Int) {
         index == pageCount - 1 -> {
             Icon(
                 imageVector = Icons.Default.Lock,
-                contentDescription = "Hidden Apps",
+                contentDescription = stringResource(R.string.hidden_apps),
                 tint = if (selected) Color.Black else Color.Gray.copy(alpha = 0.5f),
                 modifier = Modifier
                     .size(if (selected) 20.dp else 16.dp)
@@ -519,14 +521,14 @@ fun HiddenAppsScreen(
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 Button(onClick = onUnlockRequest) {
-                    Text("Unlock Hidden Apps")
+                    Text(stringResource(R.string.unlock_hidden_apps))
                 }
             }
         }
     } else {
         Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
             Text(
-                text = "Hidden Apps",
+                text = stringResource(R.string.hidden_apps),
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(bottom = 16.dp)
@@ -540,7 +542,7 @@ fun HiddenAppsScreen(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "No hidden apps yet.\nLong press an app to hide it.",
+                        text = stringResource(R.string.no_hidden_apps_yet),
                         textAlign = TextAlign.Center,
                         color = Color.Gray,
                         fontSize = 14.sp
@@ -596,14 +598,14 @@ private fun authenticate(activity: FragmentActivity, onSuccess: () -> Unit) {
                         super.onAuthenticationError(errorCode, errString)
                         // Show error unless user canceled
                         if (errorCode != BiometricPrompt.ERROR_USER_CANCELED) {
-                            Toast.makeText(activity, "Authentication error: $errString", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(activity, activity.getString(R.string.auth_error, errString), Toast.LENGTH_SHORT).show()
                         }
                     }
                 })
 
             val promptInfo = BiometricPrompt.PromptInfo.Builder()
-                .setTitle("Hidden Section Access")
-                .setSubtitle("Unlock your device to continue")
+                .setTitle(activity.getString(R.string.hidden_section_title))
+                .setSubtitle(activity.getString(R.string.hidden_section_subtitle))
                 .setAllowedAuthenticators(authenticators)
                 .build()
 
@@ -613,7 +615,7 @@ private fun authenticate(activity: FragmentActivity, onSuccess: () -> Unit) {
             // No security method enrolled
             Toast.makeText(
                 activity,
-                "To use the hidden section, a PIN, Pattern, or Fingerprint must be set on your device.",
+                activity.getString(R.string.no_security_enrolled),
                 Toast.LENGTH_LONG
             ).show()
         }
@@ -621,7 +623,7 @@ private fun authenticate(activity: FragmentActivity, onSuccess: () -> Unit) {
             // Feature not supported
             Toast.makeText(
                 activity,
-                "Your device does not support this security feature.",
+                activity.getString(R.string.device_not_supported),
                 Toast.LENGTH_LONG
             ).show()
         }

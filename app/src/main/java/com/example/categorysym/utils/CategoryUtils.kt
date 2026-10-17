@@ -96,22 +96,25 @@ fun categorize(
                 name.contains("message") || name.contains("call") ->
                     communicator.add(app)
 
-                // 2. Databank: Traditional utilities (Calendar, Clock, Calculator, Voice Recorder, Notes)
+                // 2. Databank: Traditional utilities (Calendar, Clock, Calculator, Voice Recorder, Notes, Translation, Dictionaries)
                 pkg.contains("calendar") || pkg.contains("clock") || pkg.contains("calculator") ||
                 pkg.contains("keep") || pkg.contains("notes") || pkg.contains("recorder") ||
-                pkg.contains("voice") || name.contains("alarm") || name.contains("stopwatch") ||
-                name.contains("timer") || name.contains("calculator") ->
+                pkg.contains("voice") || pkg.contains("translate") || pkg.contains("tureng") ||
+                name.contains("alarm") || name.contains("stopwatch") || name.contains("timer") ||
+                name.contains("calculator") || name.contains("çeviri") || name.contains("translate") ||
+                name.contains("tureng") ->
                     databank.add(app)
 
-                // 3. X (Devices): Music Player, Camera, Navigation
+                // 3. X (Devices): Music Player, Camera, Navigation, Pegasus
                 pkg.contains("camera") || pkg.contains("photos") || pkg.contains("gallery") ||
                 pkg.contains("maps") || pkg.contains("navigation") || pkg.contains("waze") ||
                 pkg.contains("moovit") || pkg.contains("music") || pkg.contains("player") ||
-                pkg.contains("deezer") || pkg.contains("vlc") || name.contains("walkman") ||
-                name.contains("ipod") || name.contains("yt music") ->
+                pkg.contains("deezer") || pkg.contains("vlc") || pkg.contains("pegasus") ||
+                pkg.contains("flypgs") || name.contains("walkman") || name.contains("ipod") ||
+                name.contains("yt music") || name.contains("pegasus") || name.contains("harita") ->
                     xDevices.add(app)
 
-                // 4. WWW: Web, Cloud (Drive, OneDrive, Dropbox), Torrent, Remote Desktop, VPN, Google App
+                // 4. WWW: Web, Cloud (Drive, OneDrive, Dropbox), Torrent, Remote Desktop, VPN, Google App, Obilet
                 pkg.contains("chrome") || pkg.contains("browser") || pkg.contains("firefox") ||
                 pkg.contains("opera") || pkg.contains("edge") || pkg.contains("brave") ||
                 pkg.contains("google.android.apps.docs") ||
@@ -120,33 +123,50 @@ fun categorize(
                 pkg.contains("dropbox") || pkg.contains("mega") || pkg.contains("torrent") ||
                 pkg.contains("remote") || pkg.contains("anydesk") || pkg.contains("teamviewer") ||
                 pkg.contains("vpn") || pkg.contains("gmail") || pkg.contains("mail") ||
-                pkg.contains("email") || pkg.contains("outlook") || name.contains("internet") ||
-                name.contains("email") || name.contains("mail") ->
+                pkg.contains("email") || pkg.contains("outlook") || pkg.contains("obilet") ||
+                name.contains("internet") || name.contains("email") || name.contains("mail") ||
+                name.contains("obilet") ->
                     www.add(app)
 
-                // 5. Market: Shopping, Food Delivery, Loyalty Apps, App Stores (Play Store)
+                // 5. Market: Shopping, Food Delivery, Loyalty Apps, App Stores (Play Store, A101, Algida, Daha Daha, Erikli, Hopi, N11, letgo, etc.)
                 pkg.contains("vending") || pkg.contains("play") || pkg.contains("store") ||
                 pkg.contains("market") || pkg.contains("shop") || pkg.contains("shopping") ||
                 pkg.contains("amazon") || pkg.contains("trendyol") || pkg.contains("hepsiburada") ||
                 pkg.contains("temu") || pkg.contains("ebay") || pkg.contains("alibaba") ||
                 pkg.contains("shein") || pkg.contains("delivery") || pkg.contains("getir") ||
-                pkg.contains("yemeksepeti") || pkg.contains("mcdonalds") || pkg.contains("starbucks") ->
+                pkg.contains("yemeksepeti") || pkg.contains("mcdonalds") || pkg.contains("starbucks") ||
+                pkg.contains("a101") || pkg.contains("algida") || pkg.contains("dahadaha") ||
+                pkg.contains("erikli") || pkg.contains("hopi") || pkg.contains("letgo") ||
+                pkg.contains("mediamarkt") || pkg.contains("n11") || pkg.contains("neapp") ||
+                pkg.contains("nutella") || pkg.contains("pazarama") || pkg.contains("pttavm") ||
+                pkg.contains("sahibinden") || pkg.contains("teknosa") || pkg.contains("tiklagelsin") ||
+                pkg.contains("zubizu") || pkg.contains("kofteciyusuf") ||
+                name.contains("a101") || name.contains("algida") || name.contains("daha daha") ||
+                name.contains("dahadaha") || name.contains("erikli") || name.contains("hopi") ||
+                name.contains("köfteci yusuf") || name.contains("kofteci yusuf") || name.contains("letgo") ||
+                name.contains("mediamarkt") || name.contains("n11") || name.contains("ne'app") ||
+                name.contains("neapp") || name.contains("nutella") || name.contains("pazarama") ||
+                name.contains("pttavm") || name.contains("sahibinden") || name.contains("teknosa") ||
+                name.contains("tıklagelsin") || name.contains("tiklagelsin") || name.contains("zubizu") ->
                     market.add(app)
 
-                // 6. Office: Office suites, PDF, Scanners
+                // 6. Office: Office suites, PDF, Scanners, Docs, Sheets, Slides
                 pkg.contains("docs") || pkg.contains("sheets") || pkg.contains("slides") ||
                 pkg.contains("office") || pkg.contains("word") || pkg.contains("excel") ||
                 pkg.contains("powerpoint") || pkg.contains("pdf") || pkg.contains("adobe") ||
-                pkg.contains("scanner") || pkg.contains("printer") || pkg.contains("print") ->
+                pkg.contains("scanner") || pkg.contains("printer") || pkg.contains("print") ||
+                name.contains("doküman") || name.contains("tablo") || name.contains("slayt") ->
                     office.add(app)
 
-                // 8. System: Settings, Security, Benchmarking, Local Files (WinRAR), Ecosystem/Smart Home
+                // 8. System: Settings, Security, Benchmarking, Local Files (WinRAR), Ecosystem/Smart Home, Arctis, Speedtest
                 pkg.contains("settings") || pkg.contains("system") || pkg.contains("security") ||
                 pkg.contains("benchmark") || pkg.contains("antutu") || pkg.contains("geekbench") ||
                 pkg.contains("files") || pkg.contains("filemanager") || pkg.contains("explorer") ||
                 pkg.contains("documentsui") || pkg.contains("winrar") || pkg.contains("zip") ||
                 pkg.contains("rar") || pkg.contains("huawei.ailife") || pkg.contains("smartthings") ||
                 pkg.contains("xiaomi.smarthome") || pkg.contains("wearable") || pkg.contains("watch") ||
+                pkg.contains("arctis") || pkg.contains("speedtest") || pkg.contains("ookla") ||
+                name.contains("arctis") || name.contains("speedtest") ||
                 (pkg.contains("health") && pkg.contains("gear")) || pkg.contains("sim") ||
                 pkg.contains(".stk") || pkg.contains("carrier") || pkg.contains("update") ||
                 name.contains("sim toolkit") || name == "files" || name == "my files" ->
@@ -154,33 +174,51 @@ fun categorize(
 
                 // --- Optional Categories (Check if enabled) ---
 
-                // 9. Games: Everything related to games (CoC, SimCity, Emulators, etc.)
+                // 9. Games: Everything related to games (CoC, SimCity, Emulators, Angry Birds, Chess, Sudoku, etc.)
                 (pkg.contains("game") || name.contains("game") || pkg.contains("roblox") ||
                 pkg.contains("pubg") || pkg.contains("freefire") || pkg.contains("clashofclans") ||
                 pkg.contains("dominations") || pkg.contains("simcity") || pkg.contains("emulator") ||
                 pkg.contains("retroarch") || pkg.contains("citra") || pkg.contains("dolphin") ||
                 pkg.contains("steam") || pkg.contains("battlenet") || pkg.contains("xbox") ||
-                name.contains("snake") || name.contains("arcanoid") || name.contains("mario") ||
-                name.contains("prince of persia")) && isEnabled("Games") ->
+                pkg.contains("backbone") || pkg.contains("angrybirds") || pkg.contains("doodlejump") ||
+                pkg.contains("cuttherope") || pkg.contains("fcmobile") || pkg.contains("fifamobile") ||
+                pkg.contains("chess") || pkg.contains("sudoku") || pkg.contains("templerun") ||
+                name.contains("backbone") || name.contains("angry") || name.contains("doodle") ||
+                name.contains("cut the rope") || name.contains("battle.net") || name.contains("fc mobile") ||
+                name.contains("satranç") || name.contains("chess") || name.contains("sudoku") ||
+                name.contains("temple") || name.contains("snake") || name.contains("arcanoid") ||
+                name.contains("mario") || name.contains("prince of persia")) && isEnabled("Games") ->
                     games.add(app)
 
-                // 10. Entertainment: Streaming (Netflix, Disney+), Tickets
+                // 10. Entertainment: Streaming (Netflix, Disney+, HBO Max), Tickets, Angel
                 (pkg.contains("netflix") || pkg.contains("disney") || pkg.contains("hbo") ||
                 pkg.contains("primevideo") || pkg.contains("twitch") || pkg.contains("ticket") ||
-                pkg.contains("bilet") || pkg.contains("cinema") || pkg.contains("theater")) && isEnabled("Entertainment") ->
+                pkg.contains("bilet") || pkg.contains("cinema") || pkg.contains("theater") ||
+                pkg.contains("angel") || name.contains("angel") || name.contains("hbo")) && isEnabled("Entertainment") ->
                     entertainment.add(app)
 
-                // 11. Finance: Banking, Markets, Crypto
+                // 11. Finance: Banking (GarantiBBVA, İşCep, YapıKredi, TOM Bank), Markets, Crypto, BonusFlaş, DövisApp, İstanbulKart, iyzico, Maximum, Yanımda
                 (pkg.contains("bank") || pkg.contains("finance") || pkg.contains("wallet") ||
                 pkg.contains("pay") || pkg.contains("papara") || pkg.contains("revolut") ||
                 pkg.contains("binance") || pkg.contains("coinbase") || pkg.contains("crypto") ||
-                pkg.contains("trading")) && isEnabled("Finance") ->
+                pkg.contains("trading") || pkg.contains("bonusflas") || pkg.contains("doviz") ||
+                pkg.contains("garanti") || pkg.contains("bbva") || pkg.contains("isbank") ||
+                pkg.contains("iscep") || pkg.contains("istanbulkart") || pkg.contains("belbim") ||
+                pkg.contains("iyzico") || pkg.contains("maximum") || pkg.contains("yapikredi") ||
+                pkg.contains("ykb") || pkg.contains("tombank") || pkg.contains("yanimda") ||
+                name.contains("garanti") || name.contains("bbva") || name.contains("işcep") ||
+                name.contains("iscep") || name.contains("istanbulkart") || name.contains("iyzico") ||
+                name.contains("maximum") || name.contains("yapı kredi") || name.contains("yapi kredi") ||
+                name.contains("hadi") || name.contains("tom bank") || name.contains("yanımda") ||
+                name.contains("yanimda") || name.contains("bonus") || name.contains("bonusfla") ||
+                name.contains("döviz") || name.contains("doviz")) && isEnabled("Finance") ->
                     finance.add(app)
 
-                // 12. Reference: e-devlet, e-nabız, MHRS, ÖSYM, Passwords (KeePass)
+                // 12. Reference: e-devlet, e-nabız, MHRS, ÖSYM, Passwords (KeePass), Authenticators
                 (pkg.contains("tr.gov") || pkg.contains("e_devlet") || pkg.contains("enabiz") ||
                 pkg.contains("mhrs") || pkg.contains("osym") || pkg.contains("keepass") ||
-                pkg.contains("bitwarden") || pkg.contains("lastpass") || name.contains("psref")) && isEnabled("Reference") ->
+                pkg.contains("bitwarden") || pkg.contains("lastpass") || pkg.contains("authenticator") ||
+                name.contains("authenticator") || name.contains("psref")) && isEnabled("Reference") ->
                     reference.add(app)
 
                 // 13. Books: Dictionaries, E-books, Religious apps
@@ -202,10 +240,11 @@ fun categorize(
                 pkg.contains("education") || name.contains("learn") || name.contains("akademi")) && isEnabled("Education") ->
                     education.add(app)
 
-                // 16. Business: Job Search, Hiring
+                // 16. Business: Job Search, Hiring (Eleman.net, İŞKUR Mobil)
                 (pkg.contains("linkedin") || pkg.contains("kariyernet") || pkg.contains("indeed") ||
-                pkg.contains("job") || pkg.contains("armut") || name.contains("career") ||
-                name.contains("hiring")) && isEnabled("Business") ->
+                pkg.contains("job") || pkg.contains("armut") || pkg.contains("eleman") ||
+                pkg.contains("iskur") || name.contains("eleman") || name.contains("işkur") ||
+                name.contains("iskur") || name.contains("career") || name.contains("hiring")) && isEnabled("Business") ->
                     business.add(app)
 
                 // 17. Social Media: Instagram, Facebook, X, YouTube, Threads

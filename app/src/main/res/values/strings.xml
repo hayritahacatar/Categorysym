@@ -1,3 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Categorysym</string>
+
+    <!-- Common & Navigation -->
+    <string name="search_apps_placeholder">Search apps</string>
+    <string name="search">Search</string>
+    <string name="settings">Settings</string>
+    <string name="close">Close</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="create">Create</string>
+    <string name="got_it">Got it</string>
+    <string name="back">Back</string>
+    <string name="examples_label">Examples:</string>
+    <string name="delete">Delete</string>
+    <string name="reset">Reset</string>
+
+    <!-- App Options Sheet -->
+    <string name="move_app_to">Move %1$s to</string>
+    <string name="hidden_app_options">Hidden App Options</string>
+    <string name="hide_app">Hide App</string>
+    <string name="unhide_app">Unhide App</string>
+    <string name="app_info">App Info</string>
+    <string name="uninstall_app">Uninstall App</string>
+    <string name="could_not_uninstall">Could not uninstall %1$s</string>
+
+    <!-- Drawer Screen & Hidden Vault -->
+    <string name="news_feed">News Feed</string>
+    <string name="hidden_apps">Hidden Apps</string>
+    <string name="unlock_hidden_apps">Unlock Hidden Apps</string>
+    <string name="no_hidden_apps_yet">No hidden apps yet.\nLong press an app to hide it.</string>
+    <string name="auth_error">Authentication error: %1$s</string>
+    <string name="no_security_enrolled">To use the hidden section, a PIN, Pattern, or Fingerprint must be set on your device.</string>
+    <string name="device_not_supported">Your device does not support this security feature.</string>
+    <string name="hidden_section_title">Hidden Section Access</string>
+    <string name="hidden_section_subtitle">Unlock your device to continue</string>
+    <string name="about_title">About Categorysym</string>
+    <string name="manifesto_text">\"A mobile design philosophy inspired by the ancestors of this industry, prioritizing utility over decoration. It neither hides complexity behind animations nor overhauls unambiguous functions. By treating your most personal device as an extension of self, it harmonizes everything you do with the needs of the future.\"</string>
+
+    <!-- Onboarding Screen -->
+    <string name="onboarding_subtitle">A New Way to Organize Your Digital Life</string>
+    <string name="manifesto_header">MANIFESTO</string>
+    <string name="get_started">Get Started</string>
+
+    <!-- Category Settings -->
+    <string name="category_settings">Category Settings</string>
+    <string name="enable_disable_categories">Enable or Disable Standard Categories</string>
+    <string name="custom_categories">Custom Categories</string>
+    <string name="buy_slot">Buy Category Slot</string>
+    <string name="reset_manual_categories">Reset Manual Category Moves</string>
+    <string name="reset_confirm_title">Reset Manual Moves?</string>
+    <string name="reset_confirm_message">All manual app category moves will be reset to their default categories.</string>
+    <string name="create_custom_category">Create Custom Category</string>
+    <string name="edit_custom_category">Edit Custom Category</string>
+
+    <!-- Category Upsert Dialog -->
+    <string name="category_name">Category Name</string>
+    <string name="select_color">Select Color</string>
+    <string name="custom_hex_color">Custom Hex Color</string>
+    <string name="description_manifesto">Description / Manifesto</string>
+    <string name="description_placeholder">Why are you creating this?</string>
+    <string name="example_apps">Example Apps</string>
+    <string name="example_apps_placeholder">Which apps belong here?</string>
+
+    <!-- Category Descriptions -->
+    <string name="desc_communicator">The hub for human connection and real-time dialogue. It prioritizes direct communication and community bonding.</string>
+    <string name="ex_communicator">WhatsApp, Telegram, Discord, Signal, Phone, Contacts, Zoom, Teams.</string>
+
+    <string name="desc_databank">Essential personal utilities derived from the heritage of mobile tools. These are the basic functions that transformed phones into personal digital assistants.</string>
+    <string name="ex_databank">Calendar, Clock, Calculator, Voice Recorder, Keep, Notes, Translate.</string>
+
+    <string name="desc_x_devices">Digital replacements for standalone physical hardware. This category honors the devices that smartphones have successfully unified into a single experience.</string>
+    <string name="ex_x_devices">Music Players (Walkman/iPod), Camera, Gallery, Google Maps, Yandex Maps, Moovit, Pegasus.</string>
+
+    <string name="desc_www">Your gateway to the global network and decentralized storage. It encompasses web exploration, cloud accessibility, and secure connections.</string>
+    <string name="ex_www">Chrome, Firefox, Google App, Google Drive, OneDrive, Dropbox, VPN, Email clients, obilet.</string>
+
+    <string name="desc_market">The commerce and service hub. It represents the transition of the physical marketplace into a digital, on-demand ecosystem.</string>
+    <string name="ex_market">Play Store, Amazon, Temu, Getir, Yemeksepeti, Trendyol, Hepsiburada, A101, Algida, Hopi.</string>
+
+    <string name="desc_office">Professional efficiency and document integrity. A workspace dedicated to formal creation, viewing, and management of business assets.</string>
+    <string name="ex_office">Word, Excel, Google Docs, Sheets, Slides, PDF Viewers, Adobe Acrobat, Document Scanners.</string>
+
+    <string name="desc_uncategorized">A temporary space for applications yet to be assigned a specific purpose within the launcher\'s organizational philosophy.</string>
+    <string name="ex_uncategorized">Newly installed apps, experimental tools.</string>
+
+    <string name="desc_system">The engine room and ecosystem manager. It controls the device\'s internal logic and the external hardware connected to your digital life.</string>
+    <string name="ex_system">Settings, Security, Local File Explorers (WinRAR), Smart Home (Huawei AI Life, SmartThings), Wearable Management, Arctis, Speedtest.</string>
+
+    <string name="desc_social_media">High-engagement community interaction and shared digital experiences. These platforms focus on social validation and content sharing.</string>
+    <string name="ex_social_media">YouTube, Instagram, Facebook, X (Twitter), Threads, Reddit, TikTok.</string>
+
+    <string name="desc_mass_media">Real-time global reporting and broadcast culture. It brings the traditional press and television into the palm of your hand.</string>
+    <string name="ex_mass_media">Digital Newspapers, News Portals, TV Channels, Haberler, Gazeteler.</string>
+
+    <string name="desc_games">The digital playground. Covers the entire spectrum of interactive entertainment, from nostalgic emulations to modern mobile masterpieces.</string>
+    <string name="ex_games">Steam, Xbox, PlayStation App, PSP/PS2 Emulators, Clash of Clans, SimCity, Roblox, Angry Birds, Chess, Sudoku.</string>
+
+    <string name="desc_entertainment">Passive media consumption and cultural access. It focuses on the enjoyment of art, cinema, and live events.</string>
+    <string name="ex_entertainment">Netflix, Disney+, HBO Max, Amazon Prime Video, Cinema/Theater Tickets, Angel.</string>
+
+    <string name="desc_finance">Personal and corporate wealth management. A secure environment for monitoring and managing your economic potential.</string>
+    <string name="ex_finance">Banking Apps (GarantiBBVA, İşCep, Yapı Kredi), Stock Market Trackers, Crypto Wallets, Binance, PayPal, BonusFlaş, DövizApp.</string>
+
+    <string name="desc_reference">Critical information and official gateways. These are the trusted sources for administrative and security-critical data.</string>
+    <string name="ex_reference">e-Devlet, e-Nabız, MHRS, ÖSYM AİS, Password Managers (KeePass, Bitwarden), Authenticators.</string>
+
+    <string name="desc_books">The literary and spiritual library. Dedicated to long-form reading, linguistic tools, and religious guidance.</string>
+    <string name="ex_books">Kindle, Google Books, Dictionaries, Namaz Vakti, Quran, Holy Bible.</string>
+
+    <string name="desc_education">The journey of lifelong learning. It includes platforms that facilitate the acquisition of new skills and knowledge.</string>
+    <string name="ex_education">Udemy, BTK Akademi, LinkedIn Learning, StackOverflow, GitHub, Duolingo.</string>
+
+    <string name="desc_business">Professional growth and service acquisition. It bridges the gap between labor supply and professional opportunities.</string>
+    <string name="ex_business">LinkedIn, Kariyer.net, Yenibiriş, Indeed, Armut, İŞKUR Mobil, Professional Hiring Tools.</string>
+
+    <string name="desc_health">Holistic well-being monitoring. It transforms the device into a companion for tracking physical and biological health.</string>
+    <string name="ex_health">Fitness Coaching, Activity Trackers, Cycle Trackers, Medical Records.</string>
+
+    <string name="desc_bet">Strategic gaming and competitive league tracking. Focuses on the analysis and participation in sports-based prediction markets.</string>
+    <string name="ex_bet">League Trackers (Maçkolik), Nesine, Misli, Betting Apps.</string>
+
+    <string name="desc_productivity">The center for generative creation. It empowers the user to produce new value using AI and advanced editing tools.</string>
+    <string name="ex_productivity">ChatGPT, Gemini, Claude, Video/Photo Editors (CapCut, Canva), YT Studio, Sketching Tools.</string>
 </resources>

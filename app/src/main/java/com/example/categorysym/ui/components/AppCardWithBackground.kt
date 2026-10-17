@@ -15,11 +15,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.example.categorysym.R
 import com.example.categorysym.data.AppItem
 
 @OptIn(
@@ -85,7 +87,7 @@ fun AppCardWithBackground(
                     .padding(horizontal = 20.dp, vertical = 8.dp)
             ) {
                 Text(
-                    text = if (isMoveEnabled) "Move ${app.name} to" else "Hidden App Options",
+                    text = if (isMoveEnabled) stringResource(R.string.move_app_to, app.name) else stringResource(R.string.hidden_app_options),
                     fontSize = 18.sp,
                     modifier = Modifier.padding(bottom = 8.dp)
                 )
@@ -99,7 +101,7 @@ fun AppCardWithBackground(
                     }
                 ) {
                     Text(
-                        text = if (isMoveEnabled) "Hide App" else "Unhide App",
+                        text = if (isMoveEnabled) stringResource(R.string.hide_app) else stringResource(R.string.unhide_app),
                         modifier = Modifier.fillMaxWidth(),
                         textAlign = TextAlign.Start,
                         color = MaterialTheme.colorScheme.error
@@ -150,7 +152,7 @@ fun AppCardWithBackground(
                     }
                 ) {
                     Text(
-                        text = "App Info",
+                        text = stringResource(R.string.app_info),
                         modifier = Modifier.fillMaxWidth(),
                         textAlign = TextAlign.Start
                     )
@@ -176,14 +178,14 @@ fun AppCardWithBackground(
                                 context.startActivity(fallbackIntent)
                             } catch (ex: Exception) {
                                 android.util.Log.e("AppCard", "Could not launch uninstall intent for ${app.packageName}", ex)
-                                android.widget.Toast.makeText(context, "Could not uninstall ${app.name}", android.widget.Toast.LENGTH_SHORT).show()
+                                android.widget.Toast.makeText(context, context.getString(R.string.could_not_uninstall, app.name), android.widget.Toast.LENGTH_SHORT).show()
                             }
                         }
                         showSheet = false
                     }
                 ) {
                     Text(
-                        text = "Uninstall App",
+                        text = stringResource(R.string.uninstall_app),
                         modifier = Modifier.fillMaxWidth(),
                         textAlign = TextAlign.Start,
                         color = MaterialTheme.colorScheme.error

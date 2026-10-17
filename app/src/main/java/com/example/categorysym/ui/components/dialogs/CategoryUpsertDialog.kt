@@ -11,9 +11,11 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.categorysym.R
 import com.example.categorysym.data.CustomCategory
 
 @Composable
@@ -38,19 +40,19 @@ fun CategoryUpsertDialog(
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text(if (isEditing) "Edit Category" else "Create New Category") },
+        title = { Text(if (isEditing) stringResource(R.string.edit_custom_category) else stringResource(R.string.create_custom_category)) },
         confirmButton = {
             Button(
                 onClick = { if (name.isNotBlank()) onConfirm(name, colorHex, note, examples) },
                 enabled = name.isNotBlank(),
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
             ) {
-                Text(if (isEditing) "Save" else "Create")
+                Text(if (isEditing) stringResource(R.string.save) else stringResource(R.string.create))
             }
         },
         dismissButton = {
             TextButton(onClick = onDismiss) {
-                Text("Cancel")
+                Text(stringResource(R.string.cancel))
             }
         },
         text = {
@@ -62,14 +64,14 @@ fun CategoryUpsertDialog(
                 OutlinedTextField(
                     value = name,
                     onValueChange = { name = it },
-                    label = { Text("Category Name") },
+                    label = { Text(stringResource(R.string.category_name)) },
                     singleLine = true,
                     modifier = Modifier.fillMaxWidth()
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                Text("Select Color", fontSize = 12.sp, fontWeight = FontWeight.Bold, color = Color.Gray)
+                Text(stringResource(R.string.select_color), fontSize = 12.sp, fontWeight = FontWeight.Bold, color = Color.Gray)
                 Spacer(modifier = Modifier.height(8.dp))
                 
                 // Color Grid
@@ -100,7 +102,7 @@ fun CategoryUpsertDialog(
                 OutlinedTextField(
                     value = colorHex,
                     onValueChange = { if (it.startsWith("#") && (it.length <= 7)) colorHex = it },
-                    label = { Text("Custom Hex Color") },
+                    label = { Text(stringResource(R.string.custom_hex_color)) },
                     singleLine = true,
                     modifier = Modifier.fillMaxWidth(),
                     placeholder = { Text("#RRGGBB") }
@@ -111,8 +113,8 @@ fun CategoryUpsertDialog(
                 OutlinedTextField(
                     value = note,
                     onValueChange = { note = it },
-                    label = { Text("Description / Manifesto") },
-                    placeholder = { Text("Why are you creating this?") },
+                    label = { Text(stringResource(R.string.description_manifesto)) },
+                    placeholder = { Text(stringResource(R.string.description_placeholder)) },
                     modifier = Modifier.fillMaxWidth().height(100.dp)
                 )
 
@@ -121,8 +123,8 @@ fun CategoryUpsertDialog(
                 OutlinedTextField(
                     value = examples,
                     onValueChange = { examples = it },
-                    label = { Text("Example Apps") },
-                    placeholder = { Text("Which apps belong here?") },
+                    label = { Text(stringResource(R.string.example_apps)) },
+                    placeholder = { Text(stringResource(R.string.example_apps_placeholder)) },
                     modifier = Modifier.fillMaxWidth().height(80.dp)
                 )
             }
