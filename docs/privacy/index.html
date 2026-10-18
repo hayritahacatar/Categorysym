@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Categorysym Launcher</title>
+    <style>
+        :root {
+            --bg-color: #F7F7F9;
+            --card-bg: #FFFFFF;
+            --text-color: #1A1A1A;
+            --text-muted: #666666;
+            --primary-color: #000000;
+            --border-color: #E0E0E0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 16px;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        p, li {
+            font-size: 15px;
+            color: #333333;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background-color: #F0F4F8;
+            border-left: 4px solid #2196F3;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        a {
+            color: #2196F3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px auto;
+            }
+            .card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h1>Privacy Policy</h1>
+        <div class="subtitle">Effective Date: October 15, 2026 | Last Updated: October 15, 2026</div>
+
+        <p><strong>Categorysym Launcher</strong> ("we", "our", or "the App") is an open-source Android home screen application developed by <strong>Hayri Taha ÇATAR</strong>. We are committed to protecting your privacy and ensuring complete transparency regarding how your data is handled.</p>
+
+        <div class="highlight-box">
+            <strong>🔒 Summary:</strong> Categorysym Launcher does <strong>NOT</strong> collect, store, transmit, or share any personal data, analytics, device identifiers, or usage logs. Everything operates 100% locally on your device.
+        </div>
+
+        <h2>1. Information Collection and Use</h2>
+        <p>We do not collect any personally identifiable information (PII) or telemetry data. Specifically:</p>
+        <ul>
+            <li><strong>No Analytics or Tracking:</strong> The App does not integrate any third-party tracking, advertising SDKs, or analytics services.</li>
+            <li><strong>No Account Registration:</strong> You do not need to create an account or provide personal details to use the App.</li>
+            <li><strong>No External Server Uploads:</strong> No information about your installed applications, usage habits, or settings ever leaves your device.</li>
+        </ul>
+
+        <h2>2. Local Data Storage</h2>
+        <p>To provide a personalized launcher experience, the App saves preferences locally on your device using Android's Jetpack DataStore Preferences:</p>
+        <ul>
+            <li><strong>App Usage Counts:</strong> Used solely on-device to rank your most frequently opened apps at the top of each category.</li>
+            <li><strong>Manual App Re-assignments:</strong> Remembers if you manually moved an app to a specific category.</li>
+            <li><strong>Custom Categories & Enabled Lists:</strong> Saves custom category names, colors, and enabled standard categories.</li>
+        </ul>
+
+        <h2>3. Device Permissions and Security</h2>
+        <p>Categorysym Launcher requests specific permissions strictly to perform essential launcher functions:</p>
+        <ul>
+            <li><strong>QUERY_ALL_PACKAGES:</strong> Required to query and display the list of installed applications on your device for launcher organization and search.</li>
+            <li><strong>REQUEST_DELETE_PACKAGES:</strong> Used exclusively to allow you to initiate application uninstallation directly from the launcher context menu.</li>
+            <li><strong>Biometric Authentication (BIOMETRIC_STRONG / DEVICE_CREDENTIAL):</strong> Used locally via Android's native <code>BiometricPrompt</code> API to lock and unlock your Hidden Vault. The App never accesses, processes, or stores your biometric data (fingerprint or face ID).</li>
+            <li><strong>INTERNET:</strong> Used solely by the embedded web browser component (WebView) on the News Feed page to load news search results.</li>
+        </ul>
+
+        <h2>4. News Feed (Discover Screen)</h2>
+        <p>The App includes an embedded WebView component displaying news search results. Standard web browsing policies apply to content rendered within the WebView. Categorysym Launcher does not monitor, record, or track your interactions within the WebView.</p>
+
+        <h2>5. Children's Privacy</h2>
+        <p>Our App does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13.</p>
+
+        <h2>6. Open Source and License</h2>
+        <p>Categorysym Launcher is free and open-source software distributed under the <strong>GNU General Public License v3.0 (GPLv3)</strong>. You can inspect, review, or audit the full source code on our official GitHub repository.</p>
+
+        <h2>7. Contact Us</h2>
+        <p>If you have any questions or suggestions regarding this Privacy Policy, please feel free to contact the developer:</p>
+        <ul>
+            <li><strong>Developer:</strong> Hayri Taha ÇATAR</li>
+            <li><strong>GitHub Repository:</strong> <a href="https://github.com/hayritahacatar/Categorysym" target="_blank">https://github.com/hayritahacatar/Categorysym</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/hayritahacatar" target="_blank">https://www.linkedin.com/in/hayritahacatar</a></li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 Hayri Taha ÇATAR. All rights reserved. | Categorysym Launcher
+    </div>
+</div>
+
+</body>
+</html>

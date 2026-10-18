@@ -8,7 +8,7 @@ android {
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.example.categorysym"
+        applicationId = "com.hayritahacatar.categorysym"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

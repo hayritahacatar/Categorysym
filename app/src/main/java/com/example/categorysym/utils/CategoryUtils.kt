@@ -43,7 +43,7 @@ fun categorize(
     fun isEnabled(name: String) = enabledCategories.contains(name)
 
     apps
-        .filterNot { it.packageName == "com.example.categorysym" }
+        .filterNot { it.packageName == "com.hayritahacatar.categorysym" || it.packageName == "com.example.categorysym" }
         .forEach { app ->
             val name = app.name.lowercase()
             val pkg = app.packageName.lowercase()
