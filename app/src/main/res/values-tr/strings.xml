@@ -73,6 +73,27 @@
     <string name="example_apps_placeholder">Buraya hangi uygulamalar ait?</string>
 
     <!-- Kategori Açıklamaları -->
+    <string name="cat_communicator">İletişim</string>
+    <string name="cat_databank">Veri Bankası</string>
+    <string name="cat_x_devices">X (Cihazlar)</string>
+    <string name="cat_www">WWW (İnternet)</string>
+    <string name="cat_market">Market</string>
+    <string name="cat_office">Ofis</string>
+    <string name="cat_uncategorized">Kategorisiz</string>
+    <string name="cat_system">Sistem</string>
+    <string name="cat_social_media">Sosyal Medya</string>
+    <string name="cat_mass_media">Geleneksel Medya</string>
+    <string name="cat_games">Oyunlar</string>
+    <string name="cat_entertainment">Eğlence</string>
+    <string name="cat_finance">Finans</string>
+    <string name="cat_reference">Referans</string>
+    <string name="cat_books">Kütüphane</string>
+    <string name="cat_education">Eğitim</string>
+    <string name="cat_business">İş &amp; Kariyer</string>
+    <string name="cat_health">Sağlık</string>
+    <string name="cat_bet">Spor &amp; Şans</string>
+    <string name="cat_productivity">Üretkenlik &amp; YZ</string>
+
     <string name="desc_communicator">İnsan bağlantısı ve gerçek zamanlı diyalog merkezi. Doğrudan iletişime ve topluluk bağlarına öncelik verir.</string>
     <string name="ex_communicator">WhatsApp, Telegram, Discord, Signal, Telefon, Kişiler, Zoom, Teams.</string>
 

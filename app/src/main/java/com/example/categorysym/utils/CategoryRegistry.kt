@@ -1,12 +1,41 @@
 package com.example.categorysym.utils
 
 import androidx.annotation.StringRes
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
 import com.example.categorysym.R
 
 data class CategoryInfo(
     @StringRes val descriptionRes: Int,
     @StringRes val examplesRes: Int,
 )
+
+@Composable
+fun getCategoryDisplayName(categoryName: String): String {
+    return when (categoryName) {
+        "Communicator" -> stringResource(R.string.cat_communicator)
+        "Databank" -> stringResource(R.string.cat_databank)
+        "X (Devices)" -> stringResource(R.string.cat_x_devices)
+        "WWW" -> stringResource(R.string.cat_www)
+        "Market" -> stringResource(R.string.cat_market)
+        "Office" -> stringResource(R.string.cat_office)
+        "Uncategorized" -> stringResource(R.string.cat_uncategorized)
+        "System" -> stringResource(R.string.cat_system)
+        "Social Media" -> stringResource(R.string.cat_social_media)
+        "Mass Media" -> stringResource(R.string.cat_mass_media)
+        "Games" -> stringResource(R.string.cat_games)
+        "Entertainment" -> stringResource(R.string.cat_entertainment)
+        "Finance" -> stringResource(R.string.cat_finance)
+        "Reference" -> stringResource(R.string.cat_reference)
+        "Books" -> stringResource(R.string.cat_books)
+        "Education" -> stringResource(R.string.cat_education)
+        "Business" -> stringResource(R.string.cat_business)
+        "Health" -> stringResource(R.string.cat_health)
+        "Bet" -> stringResource(R.string.cat_bet)
+        "Productivity" -> stringResource(R.string.cat_productivity)
+        else -> categoryName
+    }
+}
 
 object CategoryRegistry {
     val infoMap = mapOf(

@@ -73,6 +73,27 @@
     <string name="example_apps_placeholder">Which apps belong here?</string>
 
     <!-- Category Descriptions -->
+    <string name="cat_communicator">Communicator</string>
+    <string name="cat_databank">Databank</string>
+    <string name="cat_x_devices">X (Devices)</string>
+    <string name="cat_www">WWW</string>
+    <string name="cat_market">Market</string>
+    <string name="cat_office">Office</string>
+    <string name="cat_uncategorized">Uncategorized</string>
+    <string name="cat_system">System</string>
+    <string name="cat_social_media">Social Media</string>
+    <string name="cat_mass_media">Mass Media</string>
+    <string name="cat_games">Games</string>
+    <string name="cat_entertainment">Entertainment</string>
+    <string name="cat_finance">Finance</string>
+    <string name="cat_reference">Reference</string>
+    <string name="cat_books">Books</string>
+    <string name="cat_education">Education</string>
+    <string name="cat_business">Business</string>
+    <string name="cat_health">Health</string>
+    <string name="cat_bet">Bet</string>
+    <string name="cat_productivity">Productivity</string>
+
     <string name="desc_communicator">The hub for human connection and real-time dialogue. It prioritizes direct communication and community bonding.</string>
     <string name="ex_communicator">WhatsApp, Telegram, Discord, Signal, Phone, Contacts, Zoom, Teams.</string>
 

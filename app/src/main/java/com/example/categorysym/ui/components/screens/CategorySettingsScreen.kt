@@ -22,6 +22,7 @@ import com.example.categorysym.data.CustomCategory
 import com.example.categorysym.data.LauncherDataStore
 import com.example.categorysym.ui.components.dialogs.CategoryUpsertDialog
 import com.example.categorysym.utils.CategoryRegistry
+import com.example.categorysym.utils.getCategoryDisplayName
 import com.example.categorysym.utils.parseColor
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -82,7 +83,7 @@ fun CategorySettingsScreen(
                             Icon(Icons.Default.Info, contentDescription = "Info", tint = Color.Gray, modifier = Modifier.size(20.dp))
                         }
                         
-                        Text(text = category, fontSize = 16.sp, modifier = Modifier.weight(1f))
+                        Text(text = getCategoryDisplayName(category), fontSize = 16.sp, modifier = Modifier.weight(1f))
                         
                         if (isOptional) {
                             Switch(
@@ -208,7 +209,7 @@ fun CategorySettingsScreen(
                     Text(stringResource(R.string.got_it))
                 }
             },
-            title = { Text(name) },
+            title = { Text(getCategoryDisplayName(name)) },
             text = {
                 Column {
                     if (info != null) {

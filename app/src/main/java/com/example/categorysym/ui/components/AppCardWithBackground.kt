@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.categorysym.R
 import com.example.categorysym.data.AppItem
+import com.example.categorysym.utils.getCategoryDisplayName
 
 @OptIn(
     ExperimentalFoundationApi::class,
@@ -124,7 +125,7 @@ fun AppCardWithBackground(
                                 }
                             ) {
                                 Text(
-                                    text = category,
+                                    text = getCategoryDisplayName(category),
                                     modifier = Modifier.fillMaxWidth(),
                                     textAlign = TextAlign.Start
                                 )

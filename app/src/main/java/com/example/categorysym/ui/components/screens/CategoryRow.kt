@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.sp
 import com.example.categorysym.data.AppItem
 import com.example.categorysym.data.CategorySection
 import com.example.categorysym.ui.components.AppCardWithBackground
+import com.example.categorysym.utils.getCategoryDisplayName
 
 @Composable
 fun CategoryRow(
@@ -37,7 +38,7 @@ fun CategoryRow(
 
         // 🔹 Kategori başlığı
         Text(
-            text = section.name,
+            text = getCategoryDisplayName(section.name),
             color = Color.Black,
             fontSize = 10.sp,
             fontWeight = FontWeight.SemiBold,
