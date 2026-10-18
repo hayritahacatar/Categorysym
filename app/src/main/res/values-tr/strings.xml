@@ -48,6 +48,15 @@
     <string name="enable_disable_categories">Standart Kategorileri Etkinleştir veya Devre Dışı Bırak</string>
     <string name="custom_categories">Özel Kategoriler</string>
     <string name="buy_slot">Kategori Slotu Satın Al</string>
+    <string name="buy_slot_price">Slot Satın Al ($0.99)</string>
+    <string name="always_on">Her Zaman Açık</string>
+    <string name="purchased_slots">Satın Alınan Slotlar: %1$d/10</string>
+    <string name="available_slots">Oluşturulabilir: %1$d</string>
+    <string name="delete_category_title">Özel Kategoriyi Sil?</string>
+    <string name="delete_category_confirm">\"%1$s\" kategorisini silmek istediğinizden emin misiniz?</string>
+    <string name="delete_category_message">Bu kategorideki uygulamalar telefonunuzdan silinmeyecektir. \'Kategorisiz\' bölümüne taşınacak veya sistem mantığına göre orijinal kategorilerine döneceklerdir.</string>
+    <string name="confirm_delete">Silmeyi Onayla</string>
+    <string name="reset_everything">Hepsini Sıfırla</string>
     <string name="reset_manual_categories">Manuel Taşımaları Sıfırla</string>
     <string name="reset_confirm_title">Manuel Taşımalar Sıfırlansın mı?</string>
     <string name="reset_confirm_message">Tüm manuel uygulama taşıma tercihleriniz varsayılan kategorilerine sıfırlanacaktır.</string>

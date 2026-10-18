@@ -90,7 +90,7 @@ fun CategorySettingsScreen(
                                 onCheckedChange = { onToggleCategory(category) }
                             )
                         } else {
-                            Text("Always On", fontSize = 10.sp, color = Color.Gray, modifier = Modifier.padding(end = 12.dp))
+                            Text(stringResource(R.string.always_on), fontSize = 10.sp, color = Color.Gray, modifier = Modifier.padding(end = 12.dp))
                         }
                     }
                 }
@@ -109,11 +109,11 @@ fun CategorySettingsScreen(
                     val slotsAvailable = purchasedSlots - customCategories.size
                     Column(modifier = Modifier.padding(vertical = 8.dp)) {
                         Text(
-                            text = "Purchased Slots: $purchasedSlots/10",
+                            text = stringResource(R.string.purchased_slots, purchasedSlots),
                             fontSize = 14.sp
                         )
                         Text(
-                            text = "Available to create: $slotsAvailable",
+                            text = stringResource(R.string.available_slots, slotsAvailable),
                             fontSize = 12.sp,
                             color = Color.Gray
                         )
@@ -125,7 +125,7 @@ fun CategorySettingsScreen(
                                 modifier = Modifier.weight(1f).padding(end = 4.dp),
                                 colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
                             ) {
-                                Text(stringResource(R.string.buy_slot))
+                                Text(stringResource(R.string.buy_slot_price))
                             }
                             
                             Button(
@@ -275,17 +275,16 @@ fun CategorySettingsScreen(
         val categoryToDelete = customCategories.find { it.id == deleteConfirmId }
         AlertDialog(
             onDismissRequest = { deleteConfirmId = null },
-            title = { Text(stringResource(R.string.delete)) },
+            title = { Text(stringResource(R.string.delete_category_title)) },
             text = {
                 Column {
                     Text(
-                        text = "Are you sure you want to delete \"${categoryToDelete?.name}\"?",
+                        text = stringResource(R.string.delete_category_confirm, categoryToDelete?.name ?: ""),
                         fontWeight = FontWeight.Bold
                     )
                     Spacer(modifier = Modifier.height(12.dp))
                     Text(
-                        text = "Apps inside this category will not be deleted from your phone. " +
-                                "They will be moved to 'Uncategorized' or return to their original category based on the system's logic.",
+                        text = stringResource(R.string.delete_category_message),
                         fontSize = 14.sp,
                         color = Color.DarkGray
                     )
@@ -299,7 +298,7 @@ fun CategorySettingsScreen(
                     },
                     colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
                 ) {
-                    Text(stringResource(R.string.delete), color = Color.White)
+                    Text(stringResource(R.string.confirm_delete), color = Color.White)
                 }
             },
             dismissButton = {
@@ -325,7 +324,7 @@ fun CategorySettingsScreen(
                     },
                     colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
                 ) {
-                    Text(stringResource(R.string.reset), color = Color.White)
+                    Text(stringResource(R.string.reset_everything), color = Color.White)
                 }
             },
             dismissButton = {
