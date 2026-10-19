@@ -188,7 +188,7 @@ class LauncherDataStore(private val context: Context) {
         )
         
         val OPTIONAL_CATEGORIES = listOf(
-            "Social Media", "Mass Media", "Games", "Entertainment", "Reference", "Books", 
+            "Social Media", "Mass Media", "Games", "Entertainment", "Reference", "Books",
             "Education", "Business", "Finance", "Health", "Productivity", "Bet"
         )
     }

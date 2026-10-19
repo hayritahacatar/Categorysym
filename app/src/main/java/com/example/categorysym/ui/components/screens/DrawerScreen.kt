@@ -79,7 +79,13 @@ fun DrawerScreen(viewModel: MainViewModel = viewModel()) {
     
     // Sync logic: When the current page scrolls, sync others to the same position
     val currentPage = pagerState.currentPage
-    val currentListState = listStates.getOrPut(currentPage) { LazyListState(0, 0) }
+    val currentListState = listStates.getOrPut(currentPage) {
+        val existingState = listStates.values.firstOrNull()
+        LazyListState(
+            firstVisibleItemIndex = existingState?.firstVisibleItemIndex ?: 0,
+            firstVisibleItemScrollOffset = existingState?.firstVisibleItemScrollOffset ?: 0
+        )
+    }
     
     LaunchedEffect(currentListState.firstVisibleItemIndex, currentListState.firstVisibleItemScrollOffset) {
         listStates.forEach { entry ->

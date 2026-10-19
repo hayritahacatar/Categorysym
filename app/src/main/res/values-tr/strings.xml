@@ -74,7 +74,7 @@
 
     <!-- Kategori Açıklamaları -->
     <string name="cat_communicator">İletişim</string>
-    <string name="cat_databank">Veri Bankası</string>
+    <string name="cat_databank">Ekstralar</string>
     <string name="cat_x_devices">X (Cihazlar)</string>
     <string name="cat_www">WWW (İnternet)</string>
     <string name="cat_market">Market</string>
