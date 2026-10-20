@@ -77,9 +77,11 @@ fun DrawerScreen(viewModel: MainViewModel = viewModel()) {
     // Create a map of states for each potential page to avoid sharing a single instance
     val listStates = remember { mutableStateMapOf<Int, LazyListState>() }
     
-    // Sync logic: When the current page scrolls, sync others to the same position
     val currentPage = pagerState.currentPage
-    val currentListState = listStates.getOrPut(currentPage) {
+    val isLauncherPage = currentPage in 1..uiState.pages.size
+    val activeLauncherPage = if (isLauncherPage) currentPage else 1
+
+    val currentListState = listStates.getOrPut(activeLauncherPage) {
         val existingState = listStates.values.firstOrNull()
         LazyListState(
             firstVisibleItemIndex = existingState?.firstVisibleItemIndex ?: 0,
@@ -87,15 +89,17 @@ fun DrawerScreen(viewModel: MainViewModel = viewModel()) {
         )
     }
     
-    LaunchedEffect(currentListState.firstVisibleItemIndex, currentListState.firstVisibleItemScrollOffset) {
-        listStates.forEach { entry ->
-            val index = entry.key
-            val state = entry.value
-            if (index != currentPage) {
-                state.scrollToItem(
-                    currentListState.firstVisibleItemIndex,
-                    currentListState.firstVisibleItemScrollOffset
-                )
+    if (isLauncherPage) {
+        LaunchedEffect(currentListState.firstVisibleItemIndex, currentListState.firstVisibleItemScrollOffset) {
+            listStates.forEach { entry ->
+                val index = entry.key
+                val state = entry.value
+                if (index in 1..uiState.pages.size && index != activeLauncherPage) {
+                    state.scrollToItem(
+                        currentListState.firstVisibleItemIndex,
+                        currentListState.firstVisibleItemScrollOffset
+                    )
+                }
             }
         }
     }
