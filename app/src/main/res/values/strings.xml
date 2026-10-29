@@ -47,10 +47,10 @@
     <string name="category_settings">Category Settings</string>
     <string name="enable_disable_categories">Enable or Disable Standard Categories</string>
     <string name="custom_categories">Custom Categories</string>
-    <string name="buy_slot">Buy Category Slot</string>
-    <string name="buy_slot_price">Buy Slot ($0.99)</string>
+    <string name="buy_slot">Add Category Slot</string>
+    <string name="buy_slot_price">Add Slot</string>
     <string name="always_on">Always On</string>
-    <string name="purchased_slots">Purchased Slots: %1$d/10</string>
+    <string name="purchased_slots">Custom Category Slots: %1$d/10</string>
     <string name="available_slots">Available to create: %1$d</string>
     <string name="delete_category_title">Delete Custom Category?</string>
     <string name="delete_category_confirm">Are you sure you want to delete \"%1$s\"?</string>

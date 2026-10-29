@@ -1,7 +1,10 @@
 package com.example.categorysym.ui.components.screens
 
 import android.annotation.SuppressLint
+import android.graphics.Bitmap
+import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.compose.foundation.layout.*
@@ -46,25 +49,42 @@ fun DiscoverScreen(onWebViewCreated: (WebView) -> Unit) {
                         ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.MATCH_PARENT
                     )
+                    
+                    // Hardware Acceleration and Nested Scroll for smooth touch handling
+                    setLayerType(View.LAYER_TYPE_HARDWARE, null)
+                    isNestedScrollingEnabled = true
+                    overScrollMode = View.OVER_SCROLL_IF_CONTENT_SCROLLS
+
                     webViewClient = object : WebViewClient() {
+                        override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                            super.onPageStarted(view, url, favicon)
+                            canGoBack = view?.canGoBack() ?: false
+                        }
+
                         override fun onPageFinished(view: WebView?, url: String?) {
                             super.onPageFinished(view, url)
                             canGoBack = view?.canGoBack() ?: false
                         }
                     }
-                    settings.javaScriptEnabled = true
-                    settings.domStorageEnabled = true
-                    settings.userAgentString =
-                        "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36"
+
+                    settings.apply {
+                        javaScriptEnabled = true
+                        domStorageEnabled = true
+                        cacheMode = WebSettings.LOAD_DEFAULT
+                        @Suppress("DEPRECATION")
+                        setRenderPriority(WebSettings.RenderPriority.HIGH)
+                        userAgentString =
+                            "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36"
+                    }
+
                     loadUrl("https://www.google.com/search?q=google+news&tbm=nws")
                     
                     webViewInstance = this
                     onWebViewCreated(this)
                 }
             },
-            update = { webView ->
-                // Refresh state check if needed
-                canGoBack = webView.canGoBack()
+            update = {
+                // Do not mutate Compose state inside update lambda to prevent recomposition loops
             }
         )
     }

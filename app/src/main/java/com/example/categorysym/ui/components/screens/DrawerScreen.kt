@@ -74,35 +74,8 @@ fun DrawerScreen(viewModel: MainViewModel = viewModel()) {
         pageCount = { uiState.pages.size + 2 }
     )
 
-    // Create a map of states for each potential page to avoid sharing a single instance
-    val listStates = remember { mutableStateMapOf<Int, LazyListState>() }
-    
-    val currentPage = pagerState.currentPage
-    val isLauncherPage = currentPage in 1..uiState.pages.size
-    val activeLauncherPage = if (isLauncherPage) currentPage else 1
-
-    val currentListState = listStates.getOrPut(activeLauncherPage) {
-        val existingState = listStates.values.firstOrNull()
-        LazyListState(
-            firstVisibleItemIndex = existingState?.firstVisibleItemIndex ?: 0,
-            firstVisibleItemScrollOffset = existingState?.firstVisibleItemScrollOffset ?: 0
-        )
-    }
-    
-    if (isLauncherPage) {
-        LaunchedEffect(currentListState.firstVisibleItemIndex, currentListState.firstVisibleItemScrollOffset) {
-            listStates.forEach { entry ->
-                val index = entry.key
-                val state = entry.value
-                if (index in 1..uiState.pages.size && index != activeLauncherPage) {
-                    state.scrollToItem(
-                        currentListState.firstVisibleItemIndex,
-                        currentListState.firstVisibleItemScrollOffset
-                    )
-                }
-            }
-        }
-    }
+    // Shared LazyListState across all launcher pages for 100% unified vertical scroll synchronization
+    val sharedLauncherListState = rememberLazyListState()
 
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
@@ -162,10 +135,9 @@ fun DrawerScreen(viewModel: MainViewModel = viewModel()) {
                 val matchingSectionIndex = page1.sections.indexOfFirst { it.apps.isNotEmpty() }
                 if (matchingSectionIndex >= 0 && matchingSectionIndex != lastTargetCategoryIndex) {
                     lastTargetCategoryIndex = matchingSectionIndex
-                    val activeListState = listStates.getOrPut(1) { LazyListState(0, 0) }
-                    val isVisible = activeListState.layoutInfo.visibleItemsInfo.any { it.index == matchingSectionIndex }
+                    val isVisible = sharedLauncherListState.layoutInfo.visibleItemsInfo.any { it.index == matchingSectionIndex }
                     if (!isVisible) {
-                        activeListState.animateScrollToItem(matchingSectionIndex)
+                        sharedLauncherListState.animateScrollToItem(matchingSectionIndex)
                     }
                 }
             }
@@ -254,11 +226,10 @@ fun DrawerScreen(viewModel: MainViewModel = viewModel()) {
                     DiscoverScreen(onWebViewCreated = { feedWebView = it })
                 }
                 index <= uiState.pages.size -> {
-                    val pageListState = listStates.getOrPut(index) { LazyListState(0, 0) }
                     DrawerPageScreen(
                         page = uiState.pages[index - 1],
                         categoryNames = visibleCategoryNames,
-                        listState = pageListState,
+                        listState = sharedLauncherListState,
                         onAppClick = { viewModel.incrementUsage(it.packageName) },
                         onCategoryMove = { app, category ->
                             viewModel.saveUserCategory(app.packageName, category)

@@ -131,10 +131,22 @@ fun categorize(
                 name.contains("martı") || name.contains("biletix") ->
                     xDevices.add(app)
 
+                // 6. Office: Office suites, PDF, Scanners, Google Docs, Sheets, Slides, WPS, LibreOffice
+                pkg.contains("apps.docs.editors") || pkg.contains("docs") || pkg.contains("sheets") ||
+                pkg.contains("slides") || pkg.contains("office") || pkg.contains("word") ||
+                pkg.contains("excel") || pkg.contains("powerpoint") || pkg.contains("pdf") ||
+                pkg.contains("adobe") || pkg.contains("scanner") || pkg.contains("printer") ||
+                pkg.contains("print") || pkg.contains("wps") || pkg.contains("libreoffice") ||
+                pkg.contains("foxit") || name.contains("doküman") || name.contains("tablo") ||
+                name.contains("slayt") || name.contains("docs") || name.contains("sheets") ||
+                name.contains("slides") || name.contains("wps") ->
+                    office.add(app)
+
                 // 4. WWW: Web, Cloud (Drive, OneDrive, Dropbox), Torrent, Remote Desktop, VPN, Mail, Obilet, Enuygun
                 pkg.contains("chrome") || pkg.contains("browser") || pkg.contains("firefox") ||
                 pkg.contains("opera") || pkg.contains("edge") || pkg.contains("brave") ||
-                pkg.contains("google.android.apps.docs") || pkg.contains("googlequicksearchbox") ||
+                (pkg.contains("google.android.apps.docs") && !pkg.contains("editors")) ||
+                pkg.contains("googlequicksearchbox") ||
                 pkg.contains("drive") || pkg.contains("cloud") || pkg.contains("onedrive") ||
                 pkg.contains("dropbox") || pkg.contains("mega") || pkg.contains("torrent") ||
                 pkg.contains("remote") || pkg.contains("anydesk") || pkg.contains("teamviewer") ||
@@ -145,46 +157,6 @@ fun categorize(
                 name.contains("internet") || name.contains("email") || name.contains("mail") ||
                 name.contains("obilet") || name.contains("enuygun") ->
                     www.add(app)
-
-                // 5. Market: E-Commerce, Food Delivery, Loyalty Apps, App Stores (Play Store, Amazon, Walmart, Target, Shein, Temu, Trendyol, Hepsiburada, N11, Getir, etc.)
-                pkg.contains("vending") || pkg.contains("play") || pkg.contains("store") ||
-                pkg.contains("market") || pkg.contains("shop") || pkg.contains("shopping") ||
-                pkg.contains("amazon") || pkg.contains("trendyol") || pkg.contains("hepsiburada") ||
-                pkg.contains("temu") || pkg.contains("ebay") || pkg.contains("alibaba") ||
-                pkg.contains("shein") || pkg.contains("delivery") || pkg.contains("getir") ||
-                pkg.contains("yemeksepeti") || pkg.contains("mcdonalds") || pkg.contains("starbucks") ||
-                pkg.contains("a101") || pkg.contains("algida") || pkg.contains("dahadaha") ||
-                pkg.contains("erikli") || pkg.contains("hopi") || pkg.contains("letgo") ||
-                pkg.contains("mediamarkt") || pkg.contains("n11") || pkg.contains("neapp") ||
-                pkg.contains("nutella") || pkg.contains("pazarama") || pkg.contains("pttavm") ||
-                pkg.contains("sahibinden") || pkg.contains("teknosa") || pkg.contains("tiklagelsin") ||
-                pkg.contains("zubizu") || pkg.contains("kofteciyusuf") || pkg.contains("walmart") ||
-                pkg.contains("target") || pkg.contains("aliexpress") || pkg.contains("etsy") ||
-                pkg.contains("bestbuy") || pkg.contains("instacart") || pkg.contains("doordash") ||
-                pkg.contains("ubereats") || pkg.contains("grubhub") || pkg.contains("deliveroo") ||
-                pkg.contains("ciceksepeti") || pkg.contains("dolap") || pkg.contains("gardrops") ||
-                pkg.contains("vatan") ||
-                name.contains("a101") || name.contains("algida") || name.contains("daha daha") ||
-                name.contains("dahadaha") || name.contains("erikli") || name.contains("hopi") ||
-                name.contains("köfteci yusuf") || name.contains("kofteci yusuf") || name.contains("letgo") ||
-                name.contains("mediamarkt") || name.contains("n11") || name.contains("ne'app") ||
-                name.contains("neapp") || name.contains("nutella") || name.contains("pazarama") ||
-                name.contains("pttavm") || name.contains("sahibinden") || name.contains("teknosa") ||
-                name.contains("tıklagelsin") || name.contains("tiklagelsin") || name.contains("zubizu") ||
-                name.contains("walmart") || name.contains("target") || name.contains("aliexpress") ||
-                name.contains("ciceksepeti") || name.contains("çiçeksepeti") || name.contains("dolap") ||
-                name.contains("vatan") ->
-                    market.add(app)
-
-                // 6. Office: Office suites, PDF, Scanners, Docs, Sheets, Slides, WPS, LibreOffice
-                pkg.contains("docs") || pkg.contains("sheets") || pkg.contains("slides") ||
-                pkg.contains("office") || pkg.contains("word") || pkg.contains("excel") ||
-                pkg.contains("powerpoint") || pkg.contains("pdf") || pkg.contains("adobe") ||
-                pkg.contains("scanner") || pkg.contains("printer") || pkg.contains("print") ||
-                pkg.contains("wps") || pkg.contains("libreoffice") || pkg.contains("foxit") ||
-                name.contains("doküman") || name.contains("tablo") || name.contains("slayt") ||
-                name.contains("wps") ->
-                    office.add(app)
 
                 // 8. System: Settings, Security, Benchmarking, Local Files (WinRAR), Smart Home, Arctis, Speedtest, Carriers
                 pkg.contains("settings") || pkg.contains("system") || pkg.contains("security") ||
