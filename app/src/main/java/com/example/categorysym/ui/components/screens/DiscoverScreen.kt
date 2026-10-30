@@ -1,7 +1,9 @@
 package com.example.categorysym.ui.components.screens
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.graphics.Bitmap
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebSettings
@@ -16,6 +18,40 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import java.util.Locale
+import kotlin.math.abs
+
+class NestedScrollWebView(context: Context) : WebView(context) {
+    private var startX = 0f
+    private var startY = 0f
+
+    @SuppressLint("ClickableViewAccessibility")
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                startX = event.x
+                startY = event.y
+                parent?.requestDisallowInterceptTouchEvent(true)
+            }
+            MotionEvent.ACTION_MOVE -> {
+                val dx = abs(event.x - startX)
+                val dy = abs(event.y - startY)
+
+                if (dy > dx) {
+                    // Vertical scroll has priority, disallow parent HorizontalPager from intercepting
+                    parent?.requestDisallowInterceptTouchEvent(true)
+                } else if (dx > dy && dx > 15f) {
+                    // Horizontal swipe gesture, allow HorizontalPager to handle page swipe
+                    parent?.requestDisallowInterceptTouchEvent(false)
+                }
+            }
+            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                parent?.requestDisallowInterceptTouchEvent(false)
+            }
+        }
+        return super.onTouchEvent(event)
+    }
+}
 
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
@@ -44,13 +80,12 @@ fun DiscoverScreen(onWebViewCreated: (WebView) -> Unit) {
         AndroidView(
             modifier = Modifier.weight(1f),
             factory = { context ->
-                WebView(context).apply {
+                NestedScrollWebView(context).apply {
                     layoutParams = ViewGroup.LayoutParams(
                         ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.MATCH_PARENT
                     )
                     
-                    // Hardware Acceleration and Nested Scroll for smooth touch handling
                     setLayerType(View.LAYER_TYPE_HARDWARE, null)
                     isNestedScrollingEnabled = true
                     overScrollMode = View.OVER_SCROLL_IF_CONTENT_SCROLLS
@@ -77,14 +112,20 @@ fun DiscoverScreen(onWebViewCreated: (WebView) -> Unit) {
                             "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36"
                     }
 
-                    loadUrl("https://www.google.com/search?q=google+news&tbm=nws")
+                    val isTurkish = Locale.getDefault().language == "tr"
+                    val newsUrl = if (isTurkish) {
+                        "https://news.google.com/topstories?hl=tr&gl=TR&ceid=TR:tr"
+                    } else {
+                        "https://news.google.com"
+                    }
+                    loadUrl(newsUrl)
                     
                     webViewInstance = this
                     onWebViewCreated(this)
                 }
             },
             update = {
-                // Do not mutate Compose state inside update lambda to prevent recomposition loops
+                // Do not mutate Compose state inside update lambda
             }
         )
     }
