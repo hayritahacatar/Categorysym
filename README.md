@@ -20,12 +20,12 @@ In an era of flashy overhauls and distracting UI elements, Categorysym stands fo
 
 ---
 
-## ✨ Comprehensive Features (v1.0.0)
+## ✨ Comprehensive Features (v1.0.5)
 
 ### 1. 🚀 Dynamic & Custom Categorization Engine
-- **20+ Functional Categories:** Automatically categorizes installed applications into 8 default (*Communicator*, *Databank*, *X (Devices)*, *WWW*, *Market*, *Office*, *Uncategorized*, *System*) and 12 optional categories (*Social Media*, *Mass Media*, *Games*, *Entertainment*, *Finance*, *Reference*, *Books*, *Education*, *Business*, *Health*, *Bet*, *Productivity*).
-- **Comprehensive App Matching:** Out-of-the-box automatic recognition for over 100+ popular applications across **US**, **UK**, and **Turkey (TR)** regions (e.g., GarantiBBVA, İşCep, YapıKredi, PayPal, Chase, Revolut, HBO Max, Disney+, Netflix, ChatGPT, Gemini, WhatsApp, Telegram, Instagram, TikTok, Trendyol, Amazon, eBay, Target, Walmart, etc.).
-- **Custom Category Creation:** Create, edit, or delete custom categories with custom names, Hex colors, descriptions, and example application lists.
+- **20+ Functional Categories:** Automatically categorizes installed applications into 7 default (*Communicator*, *X (Devices)*, *WWW*, *Market*, *Office*, *Uncategorized*, *System*) and 13 optional/extra categories (*Databank/Ekstralar*, *Social Media*, *Mass Media*, *Games*, *Entertainment*, *Finance*, *Reference*, *Books*, *Education*, *Business*, *Health*, *Bet*, *Productivity*).
+- **Comprehensive App Matching Engine:** Out-of-the-box automatic recognition for over 100+ popular applications across **US**, **UK**, and **Turkey (TR)** regions (e.g., GarantiBBVA, İşCep, YapıKredi, PayPal, Chase, Revolut, Google Docs/Sheets/Slides, Battle.net, SimCity, KeePass2Android, Geekbench, 3DMark, Google TV, Gemini, WhatsApp, Telegram, Instagram, TikTok, Trendyol, Amazon, Ne'app, Getir, Yemeksepeti, eBay, Target, Walmart, etc.).
+- **Free Custom Category Creation:** Users can create up to 10 custom categories for free with custom names, Hex colors, descriptions, and example application lists.
 - **Adaptive Usage-Based Sorting:** Learns your workflow and automatically brings your most frequently used apps to the top of each category.
 - **Manual App Re-assignment:** Long-press any application to move it to a different category and permanently store your preference.
 - **Category Slot Management:** Expansion slots system for managing active categories.
@@ -36,7 +36,7 @@ In an era of flashy overhauls and distracting UI elements, Categorysym stands fo
 - **Modular i18n Architecture:** Built using native Android String Resources (`res/values/strings.xml` for English US/UK default, `res/values-tr/strings.xml` for Turkish).
 - **Localized Category Display Names:** Automatically translates standard category titles depending on the device language setting while preserving internal data keys:
   - Communicator ➔ **İletişim**
-  - Databank ➔ **Veri Bankası**
+  - Databank ➔ **Ekstralar**
   - X (Devices) ➔ **X (Cihazlar)**
   - WWW ➔ **WWW (İnternet)**
   - Market ➔ **Market**
@@ -80,8 +80,9 @@ Long-pressing any application opens a bottom context sheet (`ModalBottomSheet`) 
 
 ---
 
-### 6. 📰 Integrated Discover & News Feed
-- Built-in news feed on the left-most page (Page 0) powered by an embedded WebView (`DiscoverScreen`).
+### 6. 📰 High-Performance News Feed (Discover Screen)
+- Built-in news feed on the left-most page (Page 0) powered by an embedded `NestedScrollWebView`.
+- **Nested Touch Intercept Engine:** Custom `requestDisallowInterceptTouchEvent` gesture handling prevents horizontal pager interference for 60/120 FPS vertical scrolling.
 - Full hardware and software back button support (`BackHandler`) for seamless WebView history navigation.
 
 ---
@@ -92,7 +93,7 @@ Long-pressing any application opens a bottom context sheet (`ModalBottomSheet`) 
 ---
 
 ### 8. 📑 Synchronized Page Layout & Smart Page Indicator
-- Synchronizes vertical scroll offsets across horizontal pages (`HorizontalPager` + `LazyListState`).
+- **Per-Page Gesture Independence & Reactive Sync:** Each launcher page maintains its own gesture-responsive `LazyListState`, synchronized reactively via `snapshotFlow` for zero scroll resets and smooth 60/120 FPS page swiping.
 - **Smart Page Indicator:** Displays News Feed (Newspaper Icon) ➔ Launcher Pages (1, 2, 3...) ➔ Biometric Vault (Lock Icon).
 
 ---
@@ -124,7 +125,7 @@ For Google Play Store submission, use the following pre-formatted text:
   > Categorysym is an open-source, concept-driven Android launcher that challenges modern, overly decorative interface trends. It focuses on functional integrity, smart categorization, and a minimalist aesthetic.
   >
   > ✨ KEY FEATURES:
-  > - **Smart Categorization:** Automatically sorts your apps into 20+ functional categories (Communicator, Databank, Office, WWW, Market, Games, Finance, etc.).
+  > - **Smart Categorization:** Automatically sorts your apps into 20+ functional categories (Communicator, Ekstralar, Office, WWW, Market, Games, Finance, etc.).
   > - **Biometric Vault:** Secure sensitive applications behind device Fingerprint, Face ID, or PIN/Pattern.
   > - **Smart Search & Auto-Scroll:** Instant keyboard focus with automatic smooth scrolling directly to the category containing your search result.
   > - **Full App Management:** Direct access to App Info, Hide/Unhide options, and quick Uninstallation.
@@ -134,12 +135,12 @@ For Google Play Store submission, use the following pre-formatted text:
 
 ### 🇹🇷 Türkçe (TR)
 - **Kısa Açıklama (Maks 80 Karakter):**
-  > Süsten çok işlevselliğe öncelik veren konsept odaklı, minimalist Android başlatıcısı.
+  > Süsten çok işlevselliğe öncelik veren, minimalist bir Android başlatıcısı.
 - **Tam Açıklama:**
-  > Categorysym, modern arayüzlerin aşırı süsleme ve karmaşık animasyon trendlerine meydan okuyan, konsept odaklı açık kaynaklı bir Android Launcher uygulamasıdır.
+  > Categorysym, modern arayüzlerin aşırı süsleme ve karmaşık animasyon trendlerine meydan okuyan, kavram odaklı açık kaynaklı bir Android Launcher uygulamasıdır.
   >
   > ✨ ÖNE ÇIKAN ÖZELLİKLER:
-  > - **Akıllı Kategorileştirme:** Uygulamalarınızı otomatik olarak 20+ fonksiyonel kategoriye ayırır (İletişim, Veri Bankası, Ofis, İnternet, Market, Oyunlar, Finans vb.).
+  > - **Akıllı Kategorileştirme:** Uygulamalarınızı otomatik olarak 20+ fonksiyonel kategoriye ayırır (İletişim, Ekstralar, Ofis, İnternet, Market, Oyunlar, Finans vb.).
   > - **Biyometrik Gizli Kasa:** Hassas uygulamalarınızı Parmak İzi, Yüz Tanıma veya Cihaz PIN/Deseni ile koruyun.
   > - **Akıllı Arama & Otomatik Kaydırma:** Odaklanan klavye ile aradığınız uygulamanın bulunduğu kategoriye otomatik yumuşak kaydırma.
   > - **Uygulama Yönetimi:** Uygulama Bilgisi, Gizleme ve hızlı Uygulamayı Kaldır desteği.
