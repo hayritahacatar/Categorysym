@@ -27,7 +27,7 @@ In an era of flashy overhauls and distracting UI elements, Categorysym stands fo
 ## ✨ Comprehensive Features (v1.0.6)
 
 ### 1. 🚀 Dynamic & Custom Categorization Engine
-- **20+ Functional Categories:** Automatically categorizes installed applications into 7 default (*Communicator*, *X (Devices)*, *WWW*, *Market*, *Office*, *Uncategorized*, *System*) and 13 optional/extra categories (*Databank/Ekstralar*, *Social Media*, *Mass Media*, *Games*, *Entertainment*, *Finance*, *Reference*, *Books*, *Education*, *Business*, *Health*, *Bet*, *Productivity*).
+- **20+ Functional Categories:** Automatically categorizes installed applications into 8 default (*Communicator*, *Databank*, *X (Devices)*, *WWW*, *Market*, *Office*, *Uncategorized*, *System*) and 12 optional categories (*Social Media*, *Mass Media*, *Games*, *Entertainment*, *Finance*, *Reference*, *Books*, *Education*, *Business*, *Health*, *Bet*, *Productivity*).
 - **Comprehensive App Matching Engine:** Out-of-the-box automatic recognition for over 100+ popular applications across **US**, **UK**, and **Turkey (TR)** regions (e.g., GarantiBBVA, İşCep, YapıKredi, PayPal, Chase, Revolut, Google Docs/Sheets/Slides, Battle.net, SimCity, KeePass2Android, Geekbench, 3DMark, Google TV, Gemini, WhatsApp, Telegram, Instagram, TikTok, Trendyol, Amazon, Ne'app, Getir, Yemeksepeti, eBay, Target, Walmart, etc.).
 - **Free Custom Category Creation:** Users can create up to 10 custom categories for free with custom names, Hex colors, descriptions, and example application lists.
 - **Adaptive Usage-Based Sorting:** Learns your workflow and automatically brings your most frequently used apps to the top of each category.
