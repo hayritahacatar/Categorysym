@@ -401,6 +401,7 @@ fun categorize(
     // Always add Default Categories
     result.add(Category("Communicator", smartSorted(communicator), getCategoryColor("Communicator")))
     result.add(Category("X (Devices)", smartSorted(xDevices), getCategoryColor("X (Devices)")))
+    if (isEnabled("Databank")) result.add(Category("Databank", smartSorted(databank), getCategoryColor("Databank")))
     result.add(Category("WWW", smartSorted(www), getCategoryColor("WWW")))
     result.add(Category("Market", smartSorted(market), getCategoryColor("Market")))
     result.add(Category("Office", smartSorted(office), getCategoryColor("Office")))
@@ -408,7 +409,6 @@ fun categorize(
     result.add(Category("System", smartSorted(system), getCategoryColor("System")))
 
     // Add Optional Categories if enabled in the new requested order
-    if (isEnabled("Databank")) result.add(Category("Databank", smartSorted(databank), getCategoryColor("Databank")))
     if (isEnabled("Social Media")) result.add(Category("Social Media", smartSorted(socialMedia), getCategoryColor("Social Media")))
     if (isEnabled("Mass Media")) result.add(Category("Mass Media", smartSorted(massMedia), getCategoryColor("Mass Media")))
     if (isEnabled("Games")) result.add(Category("Games", smartSorted(games), getCategoryColor("Games")))

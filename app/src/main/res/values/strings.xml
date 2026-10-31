@@ -36,7 +36,7 @@
     <string name="hidden_section_title">Hidden Section Access</string>
     <string name="hidden_section_subtitle">Unlock your device to continue</string>
     <string name="about_title">About Categorysym</string>
-    <string name="manifesto_text">\"A mobile design philosophy inspired by the ancestors of this industry, prioritizing utility over decoration. It neither hides complexity behind animations nor overhauls unambiguous functions. By treating your most personal device as an extension of self, it harmonizes everything you do with the needs of the future.\"</string>
+    <string name="manifesto_text">\"A mobile design philosophy inspired by the ancestors of this industry, prioritizing utility over decoration. It neither hides complexity behind animations nor overhauls ambiguous functions. By treating your most personal device as an extension of self, it harmonizes everything you do with the needs of the future.\"</string>
 
     <!-- Onboarding Screen -->
     <string name="onboarding_subtitle">A New Way to Organize Your Digital Life</string>

@@ -16,7 +16,7 @@ Categorysym is an open-source, concept-driven Android launcher that challenges m
 
 In an era of flashy overhauls and distracting UI elements, Categorysym stands for absolute clarity:
 
-> *"It neither hides complexity behind animations nor overhauls unambiguous functions. By treating your most personal device as an extension of self, it harmonizes everything you do with the needs of the future."*
+> *"It neither hides complexity behind animations nor overhauls ambiguous functions. By treating your most personal device as an extension of self, it harmonizes everything you do with the needs of the future."*
 
 ---
 

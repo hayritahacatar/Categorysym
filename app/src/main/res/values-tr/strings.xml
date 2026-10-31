@@ -36,7 +36,7 @@
     <string name="hidden_section_title">Gizli Bölüm Erişimi</string>
     <string name="hidden_section_subtitle">Devam etmek için kilit açın</string>
     <string name="about_title">Categorysym Hakkında</string>
-    <string name="manifesto_text">\"Süsten çok işlevselliğe öncelik veren, bu sektörün atalarından esinlenmiş bir mobil tasarım felsefesi. Karmaşıklığı ne animasyonların arkasına saklar ne de net işlevleri aşırı yükler. En kişisel cihazınızı benliğinizin bir uzantısı olarak ele alarak, yaptığınız her şeyi geleceğin ihtiyaçlarıyla uyumlu hale getirir.\"</string>
+    <string name="manifesto_text">\"Süsten çok işlevselliğe öncelik veren, bu sektörün atalarından esinlenmiş bir mobil tasarım felsefesi. Ne karmaşık animasyonlara ne de belirsiz işlevlerin arkasına saklanır. En kişisel cihazınızı benliğinizin bir uzantısı olarak ele alarak, yaptığınız her şeyi geleceğin ihtiyaçlarıyla uyumlu hale getirir.\"</string>
 
     <!-- Onboarding Ekranı -->
     <string name="onboarding_subtitle">Dijital Yaşamınızı Düzenlemenin Yeni Yolu</string>

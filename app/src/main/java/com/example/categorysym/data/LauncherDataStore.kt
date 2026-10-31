@@ -83,14 +83,14 @@ class LauncherDataStore(private val context: Context) {
 
     // Enabled categories (Optional ones)
     val enabledCategoriesFlow: Flow<Set<String>> = context.dataStore.data.map { preferences ->
-        val saved = preferences[ENABLED_CATEGORIES_KEY] ?: emptySet()
+        val saved = preferences[ENABLED_CATEGORIES_KEY] ?: OPTIONAL_CATEGORIES.toSet()
         // Combine with always-enabled defaults
         DEFAULT_CATEGORIES + saved
     }
 
     suspend fun toggleCategory(categoryName: String) {
         context.dataStore.edit { preferences ->
-            val current = preferences[ENABLED_CATEGORIES_KEY] ?: emptySet()
+            val current = preferences[ENABLED_CATEGORIES_KEY] ?: OPTIONAL_CATEGORIES.toSet()
             if (current.contains(categoryName)) {
                 preferences[ENABLED_CATEGORIES_KEY] = current - categoryName
             } else {
