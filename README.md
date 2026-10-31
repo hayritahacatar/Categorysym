@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="app/src/main/categorysymlogo-playstore.png" width="120" height="120" alt="Categorysym Logo" />
+</p>
+
 # Categorysym Launcher 📱
 
 > **"A mobile design philosophy inspired by the ancestors of this industry, prioritizing utility over decoration."**
@@ -20,7 +24,7 @@ In an era of flashy overhauls and distracting UI elements, Categorysym stands fo
 
 ---
 
-## ✨ Comprehensive Features (v1.0.5)
+## ✨ Comprehensive Features (v1.0.6)
 
 ### 1. 🚀 Dynamic & Custom Categorization Engine
 - **20+ Functional Categories:** Automatically categorizes installed applications into 7 default (*Communicator*, *X (Devices)*, *WWW*, *Market*, *Office*, *Uncategorized*, *System*) and 13 optional/extra categories (*Databank/Ekstralar*, *Social Media*, *Mass Media*, *Games*, *Entertainment*, *Finance*, *Reference*, *Books*, *Education*, *Business*, *Health*, *Bet*, *Productivity*).
