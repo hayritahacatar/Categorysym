@@ -400,8 +400,8 @@ fun categorize(
     
     // Always add Default Categories
     result.add(Category("Communicator", smartSorted(communicator), getCategoryColor("Communicator")))
-    result.add(Category("X (Devices)", smartSorted(xDevices), getCategoryColor("X (Devices)")))
     if (isEnabled("Databank")) result.add(Category("Databank", smartSorted(databank), getCategoryColor("Databank")))
+    result.add(Category("X (Devices)", smartSorted(xDevices), getCategoryColor("X (Devices)")))
     result.add(Category("WWW", smartSorted(www), getCategoryColor("WWW")))
     result.add(Category("Market", smartSorted(market), getCategoryColor("Market")))
     result.add(Category("Office", smartSorted(office), getCategoryColor("Office")))

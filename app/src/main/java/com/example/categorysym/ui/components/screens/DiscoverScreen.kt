@@ -34,15 +34,16 @@ class NestedScrollWebView(context: Context) : WebView(context) {
                 parent?.requestDisallowInterceptTouchEvent(true)
             }
             MotionEvent.ACTION_MOVE -> {
-                val dx = abs(event.x - startX)
-                val dy = abs(event.y - startY)
+                val dx = event.x - startX
+                val absDx = abs(dx)
+                val absDy = abs(event.y - startY)
 
-                if (dy > dx) {
-                    // Vertical scroll has priority, disallow parent HorizontalPager from intercepting
-                    parent?.requestDisallowInterceptTouchEvent(true)
-                } else if (dx > dy && dx > 15f) {
-                    // Horizontal swipe gesture, allow HorizontalPager to handle page swipe
+                if (absDx > absDy && absDx > 10f) {
+                    // Horizontal swipe to next page: immediately hand over touch event to HorizontalPager!
                     parent?.requestDisallowInterceptTouchEvent(false)
+                } else if (absDy > absDx) {
+                    // Vertical news scroll
+                    parent?.requestDisallowInterceptTouchEvent(true)
                 }
             }
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
