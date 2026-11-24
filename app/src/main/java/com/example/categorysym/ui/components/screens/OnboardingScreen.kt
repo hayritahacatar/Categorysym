@@ -7,20 +7,31 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.rememberAsyncImagePainter
 import com.example.categorysym.R
 
 @Composable
 fun OnboardingScreen(onDismiss: () -> Unit) {
+    val context = LocalContext.current
+    val appIcon = remember(context) {
+        try {
+            context.packageManager.getApplicationIcon(context.packageName)
+        } catch (_: Exception) {
+            null
+        }
+    }
+
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = Color(0xFFF7F7F9),
@@ -33,15 +44,17 @@ fun OnboardingScreen(onDismiss: () -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Image(
-                painter = painterResource(id = R.mipmap.categorysymlogo),
-                contentDescription = "Categorysym Logo",
-                modifier = Modifier
-                    .size(80.dp)
-                    .clip(RoundedCornerShape(20.dp))
-            )
+            if (appIcon != null) {
+                Image(
+                    painter = rememberAsyncImagePainter(appIcon),
+                    contentDescription = "Categorysym Logo",
+                    modifier = Modifier
+                        .size(80.dp)
+                        .clip(RoundedCornerShape(20.dp))
+                )
 
-            Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(16.dp))
+            }
 
             Text(
                 text = stringResource(R.string.app_name),

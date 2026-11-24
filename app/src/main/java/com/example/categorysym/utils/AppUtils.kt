@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.PackageManager
+import androidx.core.content.ContextCompat
 import com.example.categorysym.data.AppItem
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
@@ -17,19 +18,30 @@ fun getInstalledApps(context: Context): List<AppItem> {
         addCategory(Intent.CATEGORY_LAUNCHER)
     }
 
-    val apps = pm.queryIntentActivities(
-        intent,
-        PackageManager.MATCH_ALL,
-    )
-
-    return apps.map {
-        val ai = it.activityInfo
-
-        AppItem(
-            name = it.loadLabel(pm).toString(),
-            packageName = ai.packageName,
-            icon = it.loadIcon(pm)
+    val apps = try {
+        pm.queryIntentActivities(
+            intent,
+            PackageManager.MATCH_ALL,
         )
+    } catch (_: Exception) {
+        emptyList()
+    }
+
+    return apps.mapNotNull { resolveInfo ->
+        try {
+            val ai = resolveInfo.activityInfo
+            if (ai != null && ai.packageName != null) {
+                val label = resolveInfo.loadLabel(pm).toString()
+                val icon = resolveInfo.loadIcon(pm)
+                AppItem(
+                    name = label,
+                    packageName = ai.packageName,
+                    icon = icon
+                )
+            } else null
+        } catch (_: Exception) {
+            null
+        }
     }
 }
 
@@ -47,12 +59,19 @@ fun getAppsFlow(context: Context): Flow<List<AppItem>> = callbackFlow {
         addDataScheme("package")
     }
 
-    context.registerReceiver(receiver, filter)
+    ContextCompat.registerReceiver(
+        context,
+        receiver,
+        filter,
+        ContextCompat.RECEIVER_EXPORTED
+    )
 
     // Initial emission
     trySend(getInstalledApps(context))
 
     awaitClose {
-        context.unregisterReceiver(receiver)
+        try {
+            context.unregisterReceiver(receiver)
+        } catch (_: Exception) {}
     }
 }

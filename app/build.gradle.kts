@@ -11,8 +11,8 @@ android {
         applicationId = "com.hayritahacatar.categorysym"
         minSdk = 24
         targetSdk = 36
-        versionCode = 9
-        versionName = "1.0.7"
+        versionCode = 10
+        versionName = "1.0.8"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -44,6 +44,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.datastore.preferences)
     implementation(libs.androidx.biometric)
+    implementation(libs.accompanist.drawablepainter)
     implementation(libs.coil.compose)
     implementation(libs.gson)
     implementation(libs.androidx.activity.compose)

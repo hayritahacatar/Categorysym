@@ -81,28 +81,32 @@ fun DrawerScreen(viewModel: MainViewModel = viewModel()) {
     val isLauncherPage = currentPage in 1..uiState.pages.size
     val activeLauncherPage = if (isLauncherPage) currentPage else 1
 
-    val activeState = listStates.getOrPut(activeLauncherPage) {
-        val existing = listStates.values.firstOrNull()
-        LazyListState(
-            firstVisibleItemIndex = existing?.firstVisibleItemIndex ?: 0,
-            firstVisibleItemScrollOffset = existing?.firstVisibleItemScrollOffset ?: 0
-        )
+    val activeState = remember(activeLauncherPage) {
+        listStates.getOrPut(activeLauncherPage) {
+            val existing = listStates.values.firstOrNull()
+            LazyListState(
+                firstVisibleItemIndex = existing?.firstVisibleItemIndex ?: 0,
+                firstVisibleItemScrollOffset = existing?.firstVisibleItemScrollOffset ?: 0
+            )
+        }
     }
 
-    // Sync all launcher pages to match the active page's scroll position whenever the user scrolls
-    if (isLauncherPage) {
-        LaunchedEffect(activeLauncherPage) {
-            snapshotFlow { Pair(activeState.firstVisibleItemIndex, activeState.firstVisibleItemScrollOffset) }
-                .collect { (index, offset) ->
+    // Sync launcher pages safely when active page is being scrolled by user touch
+    LaunchedEffect(activeLauncherPage) {
+        snapshotFlow { Pair(activeState.firstVisibleItemIndex, activeState.firstVisibleItemScrollOffset) }
+            .collect { (index, offset) ->
+                if (isLauncherPage && activeState.isScrollInProgress) {
                     listStates.forEach { (pageIdx, state) ->
                         if (pageIdx in 1..uiState.pages.size && pageIdx != activeLauncherPage) {
                             if (state.firstVisibleItemIndex != index || state.firstVisibleItemScrollOffset != offset) {
-                                state.scrollToItem(index, offset)
+                                runCatching {
+                                    state.scrollToItem(index, offset)
+                                }
                             }
                         }
                     }
                 }
-        }
+            }
     }
 
     val scope = rememberCoroutineScope()
@@ -130,14 +134,7 @@ fun DrawerScreen(viewModel: MainViewModel = viewModel()) {
         }
     }
 
-    // Ensure we snap to page 1 once pages are loaded for the first time
-    var hasSnappedToInitialPage by remember { mutableStateOf(false) }
-    LaunchedEffect(uiState.pages) {
-        if (uiState.pages.isNotEmpty() && !hasSnappedToInitialPage) {
-            pagerState.scrollToPage(1)
-            hasSnappedToInitialPage = true
-        }
-    }
+
 
     var lastTargetCategoryIndex by remember { mutableIntStateOf(-1) }
 
@@ -243,60 +240,73 @@ fun DrawerScreen(viewModel: MainViewModel = viewModel()) {
             Spacer(modifier = Modifier.height(44.dp))
         }
 
-        HorizontalPager(
-            state = pagerState,
-            modifier = Modifier.weight(1f),
-            flingBehavior = PagerDefaults.flingBehavior(state = pagerState),
-            pageSpacing = 8.dp
-        ) { index ->
-            when {
-                index == 0 -> {
-                    DiscoverScreen(onWebViewCreated = { feedWebView = it })
-                }
-                index <= uiState.pages.size -> {
-                    val pageListState = listStates.getOrPut(index) {
-                        LazyListState(
-                            firstVisibleItemIndex = activeState.firstVisibleItemIndex,
-                            firstVisibleItemScrollOffset = activeState.firstVisibleItemScrollOffset
+        if (uiState.isLoading || uiState.pages.isEmpty()) {
+            Box(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator(color = Color.Black)
+            }
+        } else {
+            HorizontalPager(
+                state = pagerState,
+                modifier = Modifier.weight(1f),
+                flingBehavior = PagerDefaults.flingBehavior(state = pagerState),
+                pageSpacing = 8.dp
+            ) { index ->
+                when {
+                    index == 0 -> {
+                        DiscoverScreen(onWebViewCreated = { feedWebView = it })
+                    }
+                    index <= uiState.pages.size -> {
+                        val pageListState = remember(index) {
+                            listStates.getOrPut(index) {
+                                LazyListState(
+                                    firstVisibleItemIndex = activeState.firstVisibleItemIndex,
+                                    firstVisibleItemScrollOffset = activeState.firstVisibleItemScrollOffset
+                                )
+                            }
+                        }
+                        DrawerPageScreen(
+                            page = uiState.pages[index - 1],
+                            categoryNames = visibleCategoryNames,
+                            listState = pageListState,
+                            onAppClick = { viewModel.incrementUsage(it.packageName) },
+                            onCategoryMove = { app, category ->
+                                viewModel.saveUserCategory(app.packageName, category)
+                            },
+                            onToggleHide = { viewModel.toggleHideApp(it.packageName) }
                         )
                     }
-                    DrawerPageScreen(
-                        page = uiState.pages[index - 1],
-                        categoryNames = visibleCategoryNames,
-                        listState = pageListState,
-                        onAppClick = { viewModel.incrementUsage(it.packageName) },
-                        onCategoryMove = { app, category ->
-                            viewModel.saveUserCategory(app.packageName, category)
-                        },
-                        onToggleHide = { viewModel.toggleHideApp(it.packageName) }
-                    )
-                }
-                else -> {
-                    HiddenAppsScreen(
-                        apps = uiState.hiddenApps,
-                        categoryNames = visibleCategoryNames,
-                        isUnlocked = isUnlocked,
-                        onUnlockRequest = {
-                            val activity = context.findFragmentActivity()
-                            if (activity != null) {
-                                authenticate(activity) {
-                                    isUnlocked = true
+                    else -> {
+                        HiddenAppsScreen(
+                            apps = uiState.hiddenApps,
+                            categoryNames = visibleCategoryNames,
+                            isUnlocked = isUnlocked,
+                            onUnlockRequest = {
+                                val activity = context.findFragmentActivity()
+                                if (activity != null) {
+                                    authenticate(activity) {
+                                        isUnlocked = true
+                                    }
+                                } else {
+                                    Log.e("DrawerScreen", "Could not find FragmentActivity")
                                 }
-                            } else {
-                                Log.e("DrawerScreen", "Could not find FragmentActivity")
-                            }
-                        },
-                        onAppClick = { viewModel.incrementUsage(it.packageName) },
-                        onToggleHide = { viewModel.toggleHideApp(it.packageName) }
-                    )
+                            },
+                            onAppClick = { viewModel.incrementUsage(it.packageName) },
+                            onToggleHide = { viewModel.toggleHideApp(it.packageName) }
+                        )
+                    }
                 }
             }
-        }
 
-        PageIndicator(
-            pageCount = uiState.pages.size + 2,
-            currentPage = pagerState.currentPage
-        )
+            PageIndicator(
+                pageCount = uiState.pages.size + 2,
+                currentPage = pagerState.currentPage
+            )
+        }
     }
 
     if (showSettings) {

@@ -23,15 +23,9 @@
             android:stateNotNeeded="true"
             android:theme="@style/Theme.Categorysym">
 
-            <!-- App drawer için -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-            <!-- Launcher (ana ekran) için -->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
